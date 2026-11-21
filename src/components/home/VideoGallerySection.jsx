@@ -1,14 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Sparkles,
-  X,
-  Play,
-  Eye,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, X, Play, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { videos } from "../../data/videos.data";
 
@@ -51,7 +44,7 @@ const VideoGallerySection = () => {
     activeCategory === "All"
       ? videos
       : videos.filter((v) =>
-          v.category.toLowerCase().includes(activeCategory.toLowerCase())
+          v.category.toLowerCase().includes(activeCategory.toLowerCase()),
         );
 
   const displayVideos =
@@ -212,6 +205,18 @@ const VideoGallerySection = () => {
 
                         {/* Video sirf center (active) slide me load hoti hai */}
                         {isActive && !selectedVideo && (
+                          // <video
+                          //   key={item.video}
+                          //   src={optimizeVideo(item.video, 540)}
+                          //   poster={item.thumbnail || getPoster(item.video)}
+                          //   autoPlay
+                          //   muted
+                          //   loop
+                          //   playsInline
+                          //   preload="auto"
+                          //   className="absolute inset-0 h-full w-full object-cover"
+
+                          // />
                           <video
                             key={item.video}
                             src={optimizeVideo(item.video, 540)}
@@ -220,8 +225,18 @@ const VideoGallerySection = () => {
                             muted
                             loop
                             playsInline
-                            preload="auto"
+                            preload="metadata"
                             className="absolute inset-0 h-full w-full object-cover"
+                            onError={(e) => {
+                              console.error(
+                                "Video failed to load:",
+                                item.video,
+                              );
+                              console.error(
+                                "Video error:",
+                                e.currentTarget.error,
+                              );
+                            }}
                           />
                         )}
 
@@ -343,7 +358,9 @@ const VideoGallerySection = () => {
               <video
                 ref={playerRef}
                 src={optimizeVideo(selectedVideo.video, 720)}
-                poster={selectedVideo.thumbnail || getPoster(selectedVideo.video)}
+                poster={
+                  selectedVideo.thumbnail || getPoster(selectedVideo.video)
+                }
                 autoPlay
                 controls
                 playsInline

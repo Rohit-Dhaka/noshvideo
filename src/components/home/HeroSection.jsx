@@ -570,7 +570,7 @@ const HeroSection = () => {
                   type="button"
                   onClick={() => setActive(i)}
                   aria-label={`Go to ${card.title}`}
-                  className={`relative h-1.5 overflow-hidden rounded-full transition-all duration-500 ${
+                  className={`relative h-[6px] overflow-hidden rounded-full transition-all duration-500 ${
                     isCurrent
                       ? "w-8 bg-white/20"
                       : "w-1.5 bg-white/25 hover:bg-white/50"

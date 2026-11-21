@@ -411,7 +411,7 @@ const ContactSection = () => {
                         {Math.round(progress)}%
                       </span>
                     </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
+                    <div className="h-[6px] overflow-hidden rounded-full bg-slate-100">
                       <motion.div
                         animate={{ width: `${progress}%` }}
                         transition={{ duration: 0.5 }}

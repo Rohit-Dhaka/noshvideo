@@ -189,7 +189,7 @@ const AboutSection = () => {
 
               {/* LIVE badge */}
               <div className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold tracking-wider text-black sm:text-[10px]">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+                <span className="h-[6px] w-1.5 animate-pulse rounded-full bg-red-500" />
                 LIVE
               </div>
 
@@ -241,7 +241,7 @@ const AboutSection = () => {
             <div className="absolute right-0 top-[30%] z-10 h-[62%] w-[50%] overflow-hidden rounded-2xl bg-blue-600 p-3 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.55)] sm:p-4">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest sm:text-[10px]">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
+                  <span className="h-[6px] w-1.5 animate-pulse rounded-full bg-red-400" />
                   NOW EDITING
                 </span>
 

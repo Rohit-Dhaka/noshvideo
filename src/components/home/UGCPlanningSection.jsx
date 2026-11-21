@@ -144,7 +144,7 @@ const ScriptVisual = () => {
               <div
                 key={j}
                 style={{ width: w }}
-                className="h-1.5 rounded-full bg-slate-300"
+                className="h-[6px] rounded-full bg-slate-300"
               />
             ))}
           </div>
@@ -220,7 +220,7 @@ const EditingVisual = () => {
     <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
       <div className="mb-3 flex items-center justify-between text-[10px] font-semibold tracking-wider text-slate-500">
         <span className="flex items-center gap-1.5">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+          <span className="h-[6px] w-1.5 animate-pulse rounded-full bg-red-500" />
           TIMELINE
         </span>
         <span className="font-mono">00:00:24</span>
