@@ -309,7 +309,7 @@ const AboutSection = () => {
                 </p>
                 <TrendingUp size={18} className="text-blue-600" />
               </div>
-              <p className="mt-1.5 text-[9px] leading-snug text-black/50 sm:text-[11px]">
+              <p className="mt-1.5 text-[10px] leading-snug text-white sm:text-[11px]">
                 Views in 2026 with 5 star ratings and happy clients
               </p>
 
