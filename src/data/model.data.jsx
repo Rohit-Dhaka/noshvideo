@@ -37,7 +37,7 @@ export const models = [
     image: Saloni,      
   },
      {
-    id: 5,
+    id: 6,
     name: "Ishwariya",
     image: Ishwariya,      
   },
