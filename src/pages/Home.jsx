@@ -1,0 +1,24 @@
+import AboutSection from "../components/home/AboutSection"
+import HeroSection from "../components/home/HeroSection"
+import ModelSection from "../components/home/ModelSection"
+import PricingSection from "../components/home/PricingSection"
+import VideoGallerySection from "../components/home/VideoGallerySection"
+import UGCPlanningSection from '../components/home/UGCPlanningSection'
+// import ContactSection from "../components/home/ContactSection"
+
+
+const Home = () => {
+  return (
+    <main>
+        <HeroSection/>
+        <AboutSection/>
+        <ModelSection/>
+        <VideoGallerySection/>
+        <PricingSection/>
+        <UGCPlanningSection/>
+        {/* <ContactSection/> */}
+    </main>
+  )
+}
+
+export default Home

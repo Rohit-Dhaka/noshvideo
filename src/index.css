@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+
+
+@keyframes floatOne {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes floatTwo {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  50% { transform: translate(10px, -12px) rotate(3deg); }
+}
+
+@keyframes floatThree {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-9px, -15px); }
+}
+
+@keyframes tagEnter {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tagPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tagSlide {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes cursorMove {
+  0%, 100% { transform: translate(0, 0) scaleX(-1); }
+  50% { transform: translate(5px, -6px) scaleX(-1); }
+}
+
+@keyframes cursorTilt {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(-15deg); }
+}
+
+@keyframes cursorBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes tagShine {
+  0%, 65%, 100% { transform: translateX(-100%); }
+  35% { transform: translateX(100%); }
+}
+
+@keyframes arrowMove {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(5px, -5px); }
+}
+
+@keyframes arrowRotate {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(8deg); }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
