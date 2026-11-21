@@ -12,7 +12,7 @@ const SEO = ({
     "@type": "ProfessionalService",
     name: "Nosh Infotech",
     url: SITE_URL,
-    logo: `${SITE_URL}/Favicon.png`,
+    logo: `${SITE_URL}/Favicon.webp`,
     image: `${SITE_URL}/og-image.jpg`,
     description,
     priceRange: "₹5,000+",

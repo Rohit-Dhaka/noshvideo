@@ -7,8 +7,7 @@ import {
   Send,
   Check,
   Clock,
-  ArrowUpRight,
-  Sparkles,
+  ArrowUpRight,  
   Loader2,
 } from "lucide-react";
 

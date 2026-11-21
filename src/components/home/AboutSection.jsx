@@ -7,7 +7,6 @@ import {
   Pause,
   Volume2,
   VolumeX,
-  
   Scissors,
   Video,
   Sparkles,
@@ -16,7 +15,6 @@ import {
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
-
 
 const highlights = [
   "Creative storytelling with purpose",
@@ -29,8 +27,10 @@ const process = [
   { number: "02", title: "Edit", icon: Scissors },
   { number: "03", title: "Impact", icon: Sparkles },
 ];
-const CompanyVideo2 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4";
-const CompanyVideo = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795243516/saloni5_1.mp4";
+const CompanyVideo2 =
+  "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4";
+const CompanyVideo =
+  "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795243516/saloni5_1.mp4";
 
 const avatars = ["A", "R", "S", "M", "K", "P", "D", "N"];
 const avatarShades = [
@@ -238,58 +238,54 @@ const AboutSection = () => {
 
             {/* CARD 2: NOW EDITING (timeline) */}
 
-<div className="absolute right-0 top-[30%] z-10 h-[62%] w-[50%] overflow-hidden rounded-2xl bg-blue-600 p-3 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.55)] sm:p-4">
-  <div className="flex items-center justify-between">
-    <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest sm:text-[10px]">
-      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
-      NOW EDITING
-    </span>
+            <div className="absolute right-0 top-[30%] z-10 h-[62%] w-[50%] overflow-hidden rounded-2xl bg-blue-600 p-3 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.55)] sm:p-4">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest sm:text-[10px]">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
+                  NOW EDITING
+                </span>
 
-    <span className="font-mono text-[10px] text-blue-100 sm:text-[10px]">
-      00:24:12
-    </span>
-  </div>
+                <span className="font-mono text-[10px] text-blue-100 sm:text-[10px]">
+                  00:24:12
+                </span>
+              </div>
 
-  {/* Full size video preview */}
-  <div className="relative mt-3 h-[calc(100%-75px)] min-h-0 overflow-hidden rounded-xl bg-blue-900">
-    <video
-      src={CompanyVideo2}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      className="absolute inset-0 h-full w-full object-cover"
-    />
+              {/* Full size video preview */}
+              <div className="relative mt-3 h-[calc(100%-75px)] min-h-0 overflow-hidden rounded-xl bg-blue-900">
+                <video
+                  src={CompanyVideo2}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
 
-    <span className="absolute bottom-2 left-2 z-10 text-[8px] font-semibold uppercase tracking-wider text-white/90 sm:text-[10px]">
-      Brand Reel · 4K
-    </span>
-  </div>
+                <span className="absolute bottom-2 left-2 z-10 text-[8px] font-semibold uppercase tracking-wider text-white/90 sm:text-[10px]">
+                  Brand Reel · 4K
+                </span>
+              </div>
 
-  {/* Timeline */}
-  <div className="relative mt-3 space-y-1.5">
-    {tracks.map((track, i) => (
-      <div key={i} className="flex gap-1">
-        {track.map((clip, j) => (
-          <div
-            key={j}
-            style={{ width: clip.w }}
-            className={`h-3 rounded-[4px] sm:h-4 ${clip.c}`}
-          />
-        ))}
-      </div>
-    ))}
+              {/* Timeline */}
+              <div className="relative mt-3 space-y-1.5">
+                {tracks.map((track, i) => (
+                  <div key={i} className="flex gap-1">
+                    {track.map((clip, j) => (
+                      <div
+                        key={j}
+                        style={{ width: clip.w }}
+                        className={`h-3 rounded-[4px] sm:h-4 ${clip.c}`}
+                      />
+                    ))}
+                  </div>
+                ))}
 
-    <span className="ab-scan absolute -bottom-1 -top-1 w-0.5 rounded bg-yellow-300">
-      <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-yellow-300" />
-    </span>
-  </div>
-
-
-</div>
-
-
+                <span className="ab-scan absolute -bottom-1 -top-1 w-0.5 rounded bg-yellow-300">
+                  <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-yellow-300" />
+                </span>
+              </div>
+            </div>
 
             {/* CARD 3: STATS */}
             <div className="ab-float absolute left-[33%] top-0 z-20 w-[47%] rounded-2xl bg-white p-3 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)] sm:p-4">
@@ -355,7 +351,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <h2 className="mt-2 font-['Outfit'] text-5xl font-semibold uppercase tracking-tight sm:text-6xl">
+            <h2 className="mt-2 font-['Outfit'] text-[36px]  font-semibold uppercase tracking-tight sm:text-6xl">
               <span className="relative inline-block">
                 About Us
                 <svg
@@ -376,7 +372,7 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            <p className="mt-9 text-base leading-8 text-black/60">
+            <p className=" mt-4 sm:mt-9 text-base sm:leading-8 text-black/60">
               We are a creative video editing{" "}
               <span className="font-semibold text-blue-600">
                 studio based in Haryana, India,

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import Logo from "../../assets/Images/LogoOld.png";
+import Logo from "../../assets/Images/Logo.webp";
 
 const navLinks = [
   { name: "Home", path: "/" },

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Target,
   PenLine,
@@ -9,8 +9,8 @@ import {
   PackageCheck,
   Check,
   Clock,
-  ArrowUpRight,
-  Sparkles,
+  // ArrowUpRight,
+  // Sparkles,
   Star,
   FileVideo,
 } from "lucide-react";
@@ -105,13 +105,12 @@ const StrategyVisual = () => {
   ];
   return (
     <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-      {goals.map((goal, i) => (
+      {goals.map((goal) => (
         <div key={goal.label}>
           <div className="mb-1 flex justify-between text-[11px] font-medium text-slate-500">
             <span>{goal.label}</span>
             <span className="font-bold text-blue-600">{goal.value}%</span>
           </div>
-      
         </div>
       ))}
     </div>
@@ -352,10 +351,6 @@ const UGCPlanningSection = () => {
         }
       `}</style>
 
-
-      
-      
-
       <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
         {/* HEADER */}
         <motion.div
@@ -366,18 +361,16 @@ const UGCPlanningSection = () => {
           className="grid items-end gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16"
         >
           <div>
-          
-
-   <h2 className="mt-5 font-['Outfit'] text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[56px]">
-  UGC Video{" "}
-  <span className="font-serif italic text-blue-600">
-    Production
-  </span>
-  <span className="block">In 5 Steps.</span>
-</h2>
+            <h2 className="mt-5 font-['Outfit'] text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[56px]">
+              UGC Video{" "}
+              <span className="font-serif italic text-blue-600">
+                Production{" "}
+              </span>
+              <span className="sm:block">In 5 Steps.</span>
+            </h2>
           </div>
 
-          <p className="text-base leading-8 text-black/60">
+          <p className="text-base leading-6 sm:leading-8 text-black/60">
             No guesswork, no chaos. A simple, transparent workflow that takes
             your brand from planning to final delivery, with approvals at every
             important stage.
@@ -397,10 +390,10 @@ const UGCPlanningSection = () => {
               const StepIcon = item.icon;
               const isActive = index === active;
               const isDone = index < active;
-              const isLast = index === steps.length - 1;
+              // const isLast = index === steps.length - 1;
 
               return (
-                <div key={item.id} className="flex gap-4">
+                <div key={item.id} className="flex gap-3 sm:gap-4 max-sm:items-center">
                   {/* node + connector */}
                   <div className="flex flex-col items-center">
                     <button
@@ -417,15 +410,13 @@ const UGCPlanningSection = () => {
                     >
                       {isDone ? <Check size={18} /> : <StepIcon size={18} />}
                     </button>
-
-                 
                   </div>
 
                   {/* text */}
                   <button
                     type="button"
                     onClick={() => goTo(index)}
-                    className={`mb-3 flex-1 rounded-2xl border px-5 py-4 text-left transition-all duration-500 ${
+                    className={`mb-3 flex-1 rounded-2xl border px-4 sm:px-5 py-3 sm:py-4 text-left transition-all duration-500 ${
                       isActive
                         ? "border-blue-200 bg-white shadow-[0_15px_40px_-15px_rgba(37,99,235,0.35)]"
                         : "border-transparent hover:bg-white/70"
@@ -463,8 +454,6 @@ const UGCPlanningSection = () => {
             className="lg:sticky lg:top-28 lg:self-start"
           >
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(37,99,235,0.35)] sm:p-8">
-            
-
               {/* watermark number */}
               <span className="pointer-events-none absolute -right-2 -top-4 select-none font-['Outfit'] text-[130px] font-bold leading-none text-blue-600/[0.06] sm:text-[170px]">
                 {step.number}
@@ -525,7 +514,7 @@ const UGCPlanningSection = () => {
               </AnimatePresence>
             </div>
           </motion.div>
-        </div>   
+        </div>
       </div>
     </section>
   );

@@ -70,16 +70,16 @@ const ModelSection = () => {
       {/* Blue glow */}
       {/* <div className="absolute -left-40 top-1/4 -z-10 h-[420px] w-[420px] rounded-full bg-blue-600/20 blur-3xl" /> */}
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1500px] items-end gap-12 px-5 pb-14 pt-28 sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8 lg:px-16 lg:pb-16">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1500px] items-end gap-8 sm:gap-12 px-5 pb-14 pt-28 sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8 lg:px-16 lg:pb-16">
         {/* LEFT: heading, description, buttons only */}
         <div className="max-w-xl">
           <h2 className="font-['Outfit'] text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[58px]">
-            Your Brand.
-            <span className="block text-blue-500">Her Presence.</span>
-            <span className="block">A Lasting Impression.</span>
+            Your Brand.{" "}
+            <span className="sm:block text-blue-500">Her Presence.</span>{" "}
+            <span className="sm:block">A Lasting Impression.</span>
           </h2>
 
-          <p className="mt-6 max-w-md text-sm leading-7 text-white/75 sm:text-base">
+          <p className="mt-3 sm:mt-6 max-w-md text-sm leading-6 sm:leading-7 text-white/75 sm:text-base">
             Work with{" "}
             <span className="font-semibold text-white">Nosh Infotech</span> and
             bring your brand story to life with confident, professional
@@ -87,7 +87,7 @@ const ModelSection = () => {
             <span className="font-semibold text-blue-400">₹5,000</span>.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-4 sm:mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#contact"
               className="rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"

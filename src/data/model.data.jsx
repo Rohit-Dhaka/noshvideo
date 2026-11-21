@@ -1,11 +1,11 @@
 
 
-import KanikaSharma from "../assets/Images/KanikaSharma.png"
-import BhavyaSharma from '../assets/Images/bhavyasharma.png'
-import DeepaVishrama from '../assets/Images/deepaviskrama.png'
-import Fiza from '../assets/Images/fiza.png'
-import Saloni from '../assets/Images/saloni.png'
-import Ishwariya from '../assets/Images/Ishwariya.png'
+import KanikaSharma from "../assets/Images/KanikaSharma.webp"
+import BhavyaSharma from '../assets/Images/bhavyasharma.webp'
+import DeepaVishrama from '../assets/Images/deepaviskrama.webp'
+import Fiza from '../assets/Images/fiza.webp'
+import Saloni from '../assets/Images/saloni.webp'
+import Ishwariya from '../assets/Images/Ishwariya.webp'
 
 export const models = [
   {

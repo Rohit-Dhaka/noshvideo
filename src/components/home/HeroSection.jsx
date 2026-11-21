@@ -22,25 +22,25 @@ import {
 const themes = {
   black: {
     card: "bg-zinc-950 border-white/15 text-white",
-    sub: "text-white/60",
+    sub: "text-white",
     iconBox: "bg-white/10 text-white",
     play: "bg-white text-black",
   },
   white: {
     card: "bg-white border-white text-black",
-    sub: "text-black/70",
+    sub: "text-black",
     iconBox: "bg-blue-50 text-blue-600",
     play: "bg-black text-white",
   },
   blue: {
     card: "bg-blue-600 border-blue-500 text-white",
-    sub: "text-white/70",
+    sub: "text-white",
     iconBox: "bg-white/15 text-white",
     play: "bg-white text-blue-600",
   },
   soft: {
     card: "bg-blue-950 border-blue-500/40 text-white",
-    sub: "text-white/60",
+    sub: "text-white",
     iconBox: "bg-blue-500/20 text-blue-300",
     play: "bg-blue-600 text-white",
   },
