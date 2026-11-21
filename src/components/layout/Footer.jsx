@@ -83,7 +83,7 @@ const Footer = () => {
           </nav>
 
           {/* Copyright */}
-          <p className="mt-9 w-full border-t border-white/10 pt-6 text-xs text-white/45">
+          <p className="mt-9 w-full border-t border-white/10 pt-6 text-xs text-white">
             © {new Date().getFullYear()} NOSH INFOTECH. All rights reserved.
           </p>
         </div>

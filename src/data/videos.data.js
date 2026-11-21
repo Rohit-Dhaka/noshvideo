@@ -19,8 +19,9 @@ const deepaviskrama5 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v17952
 
 
 
+
 const fiza1 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4";
-const fiza2 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240711/fiza3.mp4";
+const fiza2 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241026/fiza2.mp4";
 const fiza3 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240711/fiza3.mp4";
 const fiza4 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240741/fiza4.mp4";
 const fiza5 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240805/fiza5.mp4";
