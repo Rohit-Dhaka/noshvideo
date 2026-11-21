@@ -13,8 +13,8 @@ const bhavyasharma5 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v179524
 
 const deepaviskrama1 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795245679/deepaviskrama1_2.mp4";
 const deepaviskrama2 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795244188/deepaviskrama2_1.mp4";
-// import deepaviskrama3 from "../assets/Vidoe/deepaviskrama3.mp4";
-// import deepaviskrama4 from "../assets/Vidoe/deepaviskrama4.mp4";
+const deepaviskrama3 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795246998/deepaviskrama3_1.mp4";
+const deepaviskrama4 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795247043/deepaviskrama4_1.mp4";
 const deepaviskrama5 = "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795244591/deepaviskrama5_1.mp4";
 
 
@@ -66,8 +66,8 @@ const creatorVideos = [
     videos: [
       deepaviskrama1,
       deepaviskrama2,
-      // deepaviskrama3,
-      // deepaviskrama4,
+      deepaviskrama3,
+      deepaviskrama4,
       deepaviskrama5,
     ],
   },
