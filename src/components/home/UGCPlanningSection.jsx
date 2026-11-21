@@ -434,7 +434,7 @@ const UGCPlanningSection = () => {
                     <div className="flex items-center justify-between gap-3">
                       <p
                         className={`font-['Outfit'] text-xl font-semibold transition-colors sm:text-2xl ${
-                          isActive ? "text-black" : "text-black/50"
+                          isActive ? "text-black" : "text-black/70"
                         }`}
                       >
                         {item.title}
@@ -447,7 +447,7 @@ const UGCPlanningSection = () => {
                         {item.number}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm text-black/50">{item.short}</p>
+                    <p className="mt-1 text-sm text-black/70">{item.short}</p>
                   </button>
                 </div>
               );
@@ -488,7 +488,7 @@ const UGCPlanningSection = () => {
                       <p className="text-[11px] font-bold tracking-[0.25em] text-blue-600">
                         STEP {step.number} / 0{steps.length}
                       </p>
-                      <p className="flex items-center gap-1.5 text-xs text-black/50">
+                      <p className="flex items-center gap-1.5 text-xs text-black/70">
                         <Clock size={12} />
                         {step.duration}
                       </p>

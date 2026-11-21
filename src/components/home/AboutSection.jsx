@@ -188,7 +188,7 @@ const AboutSection = () => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-950/70 via-transparent to-blue-950/10" />
 
               {/* LIVE badge */}
-              <div className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[9px] font-bold tracking-wider text-black sm:text-[10px]">
+              <div className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold tracking-wider text-black sm:text-[10px]">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
                 LIVE
               </div>
@@ -240,12 +240,12 @@ const AboutSection = () => {
 
 <div className="absolute right-0 top-[30%] z-10 h-[62%] w-[50%] overflow-hidden rounded-2xl bg-blue-600 p-3 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.55)] sm:p-4">
   <div className="flex items-center justify-between">
-    <span className="flex items-center gap-1.5 text-[9px] font-bold tracking-widest sm:text-[10px]">
+    <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-widest sm:text-[10px]">
       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
       NOW EDITING
     </span>
 
-    <span className="font-mono text-[9px] text-blue-100 sm:text-[10px]">
+    <span className="font-mono text-[10px] text-blue-100 sm:text-[10px]">
       00:24:12
     </span>
   </div>
@@ -262,7 +262,7 @@ const AboutSection = () => {
       className="absolute inset-0 h-full w-full object-cover"
     />
 
-    <span className="absolute bottom-2 left-2 z-10 text-[8px] font-semibold uppercase tracking-wider text-white/90 sm:text-[9px]">
+    <span className="absolute bottom-2 left-2 z-10 text-[8px] font-semibold uppercase tracking-wider text-white/90 sm:text-[10px]">
       Brand Reel · 4K
     </span>
   </div>
@@ -286,17 +286,7 @@ const AboutSection = () => {
     </span>
   </div>
 
-  <div className="mt-3 hidden items-center gap-3 text-[10px] text-blue-100 sm:flex">
-    <span className="rounded-full bg-white/15 px-2 py-0.5">
-      Cuts
-    </span>
-    <span className="rounded-full bg-white/15 px-2 py-0.5">
-      Color
-    </span>
-    <span className="rounded-full bg-white/15 px-2 py-0.5">
-      Sound
-    </span>
-  </div>
+
 </div>
 
 
@@ -319,7 +309,7 @@ const AboutSection = () => {
                 {avatars.map((a, i) => (
                   <span
                     key={a + i}
-                    className={`flex h-5 w-5 items-center justify-center rounded-full text-[9px] font-bold text-white ring-2 ring-white sm:h-6 sm:w-6 ${avatarShades[i]}`}
+                    className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white ring-2 ring-white sm:h-6 sm:w-6 ${avatarShades[i]}`}
                   >
                     {a}
                   </span>
@@ -409,7 +399,7 @@ const AboutSection = () => {
                     className="group rounded-2xl border border-blue-100 bg-blue-50/60 p-4 transition duration-300 hover:-translate-y-1 hover:border-blue-600 hover:bg-blue-600 hover:text-white"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-blue-600 group-hover:text-blue-100">
+                      <span className="text-xs font-bold text-blue-600 ">
                         {item.number}
                       </span>
                       <Icon
@@ -465,340 +455,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-
-// import { useRef, useState, useEffect } from "react";
-// import { motion } from "motion/react";
-// import {
-//   ArrowUpRight,
-//   CheckCircle2,
-//   Sparkles,
-//   Play,
-//   Pause,
-//   Volume2,
-//   VolumeX,
-//   Clapperboard,
-//   Scissors,
-//   Video,
-// } from "lucide-react";
-// import { Link } from "react-router-dom";
-
-// const AboutSection = () => {
-//   const highlights = [
-//     "Creative storytelling with purpose",
-//     "Professional and polished editing",
-//     "Visual content that captures attention",
-//   ];
-
-//   const process = [
-//     { number: "01", title: "Create", icon: Video },
-//     { number: "02", title: "Edit", icon: Scissors },
-//     { number: "03", title: "Impact", icon: Sparkles },
-//   ];
-
-//   const videoRef = useRef(null);
-
-//   const [isPlaying, setIsPlaying] = useState(false);
-//   const [isMuted, setIsMuted] = useState(true);
-
-//   // Automatically play video on component load
-//   useEffect(() => {
-//     const video = videoRef.current;
-
-//     if (!video) return;
-
-//     video.muted = true;
-//     video.defaultMuted = true;
-//     video.playsInline = true;
-
-//     const playVideo = async () => {
-//       try {
-//         await video.play();
-//         setIsPlaying(true);
-//       } catch (error) {
-//         console.error("Autoplay failed:", error);
-//         setIsPlaying(false);
-//       }
-//     };
-
-//     playVideo();
-
-//     return () => {
-//       video.pause();
-//     };
-//   }, []);
-
-//   // Play / Pause
-//   const togglePlay = async () => {
-//     const video = videoRef.current;
-
-//     if (!video) return;
-
-//     if (video.paused) {
-//       try {
-//         await video.play();
-//         setIsPlaying(true);
-//       } catch (error) {
-//         console.error("Video playback failed:", error);
-//         setIsPlaying(false);
-//       }
-//     } else {
-//       video.pause();
-//       setIsPlaying(false);
-//     }
-//   };
-
-//   // Mute / Unmute
-//   const toggleMute = () => {
-//     const video = videoRef.current;
-
-//     if (!video) return;
-
-//     video.muted = !video.muted;
-//     setIsMuted(video.muted);
-//   };
-
-//   return (
-//     <section
-//       id="about"
-//       className="relative overflow-hidden bg-blue-600 py-12 lg:py-16"
-//     >
-//       <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-400/30 blur-3xl" />
-//       <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-blue-800/40 blur-3xl" />
-//       <div className="relative mx-auto grid items-center gap-14 px-5 sm:px-10 lg:grid-cols-2 lg:gap-20 lg:px-16">
-//         <motion.div
-//           initial={{ opacity: 0, x: -45 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//           className="relative mx-auto w-full max-w-xl"
-//         >
-//           <div className="absolute -left-4 -top-4 h-28 w-28 border-l-2 border-t-2 border-blue-200/70" />
-
-//           <div className="absolute -bottom-4 -right-4 h-28 w-28 border-b-2 border-r-2 border-blue-300/70" />
-
-//           <div className="relative overflow-hidden border border-white/20 bg-white/10 p-3">
-//             <div className="group relative w-full overflow-hidden bg-slate-950">
-//               {/* Autoplay Video */}
-//               <video
-//                 ref={videoRef}
-//                 src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-//                 poster="/images/about/about-main.jpg"
-//                 autoPlay
-//                 muted
-//                 loop
-//                 playsInline
-//                 preload="auto"
-//                 onLoadedData={() => {
-//                   const video = videoRef.current;
-
-//                   if (video && video.paused) {
-//                     video.play().catch((error) => {
-//                       console.error("Video autoplay failed:", error);
-//                     });
-//                   }
-//                 }}
-//                 onPlay={() => setIsPlaying(true)}
-//                 onPause={() => setIsPlaying(false)}
-//                 onVolumeChange={(e) => setIsMuted(e.currentTarget.muted)}
-//                 className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[5/4] w-full object-cover transition duration-700 group-hover:scale-105"
-//               />
-
-//               {/* Video Overlay */}
-//               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/10" />
-
-//               {/* Creative Studio Label */}
-//               <div className="absolute left-3 top-3 flex items-center gap-2 border border-white/30 bg-slate-950/40 px-3 py-2 text-[9px] font-semibold tracking-wider text-white backdrop-blur-md sm:left-5 sm:top-5 sm:text-xs">
-//                 <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-blue-400" />
-//                 CREATIVE STUDIO
-//               </div>
-
-//               {/* Play / Pause Button */}
-//               <button
-//                 type="button"
-//                 onClick={togglePlay}
-//                 aria-label={isPlaying ? "Pause video" : "Play video"}
-//                 className="absolute inset-0 flex items-center justify-center text-white"
-//               >
-//                 <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 bg-white/20 backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-blue-600 sm:h-16 sm:w-16">
-//                   {isPlaying ? (
-//                     <Pause
-//                       size={20}
-//                       className="sm:h-6 sm:w-6"
-//                       fill="currentColor"
-//                     />
-//                   ) : (
-//                     <Play
-//                       size={20}
-//                       className="sm:h-6 sm:w-6"
-//                       fill="currentColor"
-//                     />
-//                   )}
-//                 </span>
-//               </button>
-
-//               {/* Bottom Content */}
-//               <div className="pointer-events-none absolute bottom-4 left-3 right-14 sm:bottom-6 sm:left-5 sm:right-20 lg:bottom-7">
-//                 <p className="text-[9px] font-semibold uppercase leading-relaxed tracking-[0.15em] text-blue-200 sm:text-xs sm:tracking-[0.25em]">
-//                   Turning imagination into reality
-//                 </p>
-
-//                 <h3 className="mt-2 max-w-md font-['Outfit'] text-xl font-bold leading-tight text-white sm:text-2xl md:text-3xl lg:text-4xl">
-//                   Every Frame Tells A Story.
-//                 </h3>
-//               </div>
-
-//               {/* Mute / Unmute Button */}
-//               <button
-//                 type="button"
-//                 onClick={toggleMute}
-//                 aria-label={isMuted ? "Unmute video" : "Mute video"}
-//                 className="absolute bottom-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-slate-950/50 text-white backdrop-blur-md transition hover:bg-white hover:text-blue-600 sm:bottom-5 sm:right-5 sm:h-10 sm:w-10"
-//               >
-//                 {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-//               </button>
-//             </div>
-//           </div>
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: 0.4, duration: 0.6 }}
-//             className="absolute max-sm:hidden -bottom-7 right-3 flex items-center gap-3 border border-white/20 bg-white px-5 py-4 text-blue-600 sm:-right-5"
-//           >
-//             <div className="flex h-11 w-11 items-center justify-center bg-blue-600 text-white">
-//               <Clapperboard size={22} />
-//             </div>
-
-//             <div>
-//               <p className="font-['Outfit'] text-lg font-bold">Creative</p>
-
-//               <p className="text-xs font-medium text-slate-500">
-//                 Video Editing Studio
-//               </p>
-//             </div>
-//           </motion.div>
-
-//           {/* Vertical Decorative Text */}
-//           <div className="absolute -left-8 top-1/2 hidden -translate-y-1/2 -rotate-90 text-[10px] font-bold tracking-[0.4em] text-blue-100/70 sm:block">
-//             CREATIVITY IN MOTION
-//           </div>
-//         </motion.div>
-
-//         {/* RIGHT SIDE - CONTENT */}
-//         <motion.div
-//           initial={{ opacity: 0, x: 45 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//           className="relative"
-//         >
-//           {/* Badge */}
-//           <div className="mb-6 inline-flex items-center gap-2 border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100">
-//             <Sparkles size={16} />A LITTLE ABOUT US
-//           </div>
-
-//           {/* Main Heading */}
-//           <h2 className="font-['Outfit'] text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl">
-//             We Don't Just Edit Videos.
-//             <span className="mt-2 block text-blue-100">
-//               We Create Experiences.
-//             </span>
-//           </h2>
-
-//           {/* Accent Line */}
-//           <div className="mt-6 flex items-center gap-3">
-//             <div className="h-1 w-14 bg-white" />
-//             <div className="h-1 w-5 bg-blue-300" />
-//             <div className="h-1 w-2 bg-blue-200/50" />
-//           </div>
-
-//           {/* Description */}
-//           <p className="mt-6 text-base leading-8 text-blue-100">
-//             We are a creative video editing{" "}
-//             <span className="font-bold text-white">
-//               {" "}
-//               studio based in Haryana, India,{" "}
-//             </span>
-//             helping creators and businesses transform ordinary footage into
-//             <span className="font-bold text-white">
-//               {" "}
-//               extraordinary visual stories.
-//             </span>
-//           </p>
-
-//           <p className="mt-4 text-base leading-8 text-blue-100">
-//             From Instagram Reels and YouTube Shorts to cinematic videos and
-//             brand promotions, we combine creativity, storytelling, and precision
-//             to make every frame count.
-//           </p>
-
-//           {/* Creative Process */}
-//           <div className="mt-8 grid grid-cols-3 border-y border-white/20 py-5">
-//             {process.map((item, index) => {
-//               const Icon = item.icon;
-
-//               return (
-//                 <div
-//                   key={item.number}
-//                   className={`flex flex-col gap-2 ${
-//                     index !== 2 ? "border-r border-white/20" : ""
-//                   } ${index === 1 ? "pl-4 sm:pl-7" : ""} ${
-//                     index === 2 ? "pl-4 sm:pl-7" : ""
-//                   }`}
-//                 >
-//                   <div className="flex items-center gap-2 text-blue-200">
-//                     <span className="text-xs font-bold">{item.number}</span>
-
-//                     <Icon size={17} />
-//                   </div>
-
-//                   <p className="font-['Outfit'] text-lg font-bold text-white sm:text-xl">
-//                     {item.title}
-//                   </p>
-//                 </div>
-//               );
-//             })}
-//           </div>
-
-//           {/* Highlights */}
-//           <div className="mt-7 space-y-4">
-//             {highlights.map((item, index) => (
-//               <motion.div
-//                 key={item}
-//                 initial={{ opacity: 0, x: 15 }}
-//                 whileInView={{ opacity: 1, x: 0 }}
-//                 viewport={{ once: true }}
-//                 transition={{ delay: index * 0.12, duration: 0.4 }}
-//                 className="flex items-center gap-3"
-//               >
-//                 <CheckCircle2 size={19} className="shrink-0 text-blue-200" />
-
-//                 <span className="text-sm font-medium text-white sm:text-base">
-//                   {item}
-//                 </span>
-//               </motion.div>
-//             ))}
-//           </div>
-//           <div className="mt-9 flex flex-wrap items-center gap-5">
-//             <Link
-//               to="/contact"
-//               className="group rounded inline-flex items-center gap-3 bg-white px-7 py-3.5 font-semibold text-blue-600 transition hover:bg-blue-50"
-//             >
-//               Let's Work Together
-//               <ArrowUpRight
-//                 size={19}
-//                 className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-//               />
-//             </Link>
-
-//             <span className="text-sm font-medium text-blue-100">
-//               Let's create something different.
-//             </span>
-//           </div>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default AboutSection;

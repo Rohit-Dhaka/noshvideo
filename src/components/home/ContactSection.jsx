@@ -405,7 +405,7 @@ const ContactSection = () => {
                   {/* progress */}
                   <div className="mb-7">
                     <div className="mb-2 flex items-center justify-between text-[11px] font-semibold tracking-wide">
-                      <span className="text-black/50">
+                      <span className="text-black/70">
                         PROJECT BRIEF · {filled}/5
                       </span>
                       <span className="text-blue-600">

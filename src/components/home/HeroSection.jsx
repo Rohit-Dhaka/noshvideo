@@ -28,7 +28,7 @@ const themes = {
   },
   white: {
     card: "bg-white border-white text-black",
-    sub: "text-black/50",
+    sub: "text-black/70",
     iconBox: "bg-blue-50 text-blue-600",
     play: "bg-black text-white",
   },
@@ -859,7 +859,7 @@ export default HeroSection;
 //                 <div className="absolute left-5 top-5 flex items-center gap-2">
 //                   <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
 
-//                   <span className="text-[9px] font-bold tracking-[0.3em] text-white">
+//                   <span className="text-[10px] font-bold tracking-[0.3em] text-white">
 //                     NOW CREATING
 //                   </span>
 //                 </div>
