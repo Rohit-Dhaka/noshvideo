@@ -1,9 +1,70 @@
+
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, Zap, Scissors, Camera, Plus } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Zap,
+  Scissors,
+  Camera,
+  Plus,
+} from "lucide-react";
 
 const services = {
+  model: {
+    label: "Model Shoots",
+    badge: "Video packages",
+    icon: Camera,
+    unit: "/ package",
+    description:
+      "Professional model shoots for brands, products and campaigns. Choose a package based on how many videos you need.",
+    plans: [
+      {
+        name: "Starter",
+        price: "₹2,499",
+        desc: "Perfect for businesses looking for one professionally shot model video.",
+        features: [
+          "1 professional model video",
+          "Model shoot included",
+          "Professional camera setup",
+          "Basic video editing",
+          "Color correction",
+          "1 Revision",
+        ],
+      },
+      {
+        name: "Professional",
+        price: "₹6,999",
+        featured: true,
+        desc: "Get more content for your brand with three professionally produced model videos.",
+        features: [
+          "3 model videos",
+          "Professional model",
+          "Creative shoot direction",
+          "Professional video editing",
+          "Color grading",
+          "Background music",
+          "3 Revisions",
+        ],
+      },
+      {
+        name: "Premium",
+        price: "₹9,999",
+        desc: "A complete content package for brands that want five videos ready for marketing.",
+        features: [
+          "5 model videos",
+          "Professional model",
+          "Premium shoot setup",
+          "Creative direction",
+          "Advanced video editing",
+          "Color grading & effects",
+          "Priority delivery",
+          "4 Revisions",
+        ],
+      },
+    ],
+  },
+
   video: {
     label: "Video Editing",
     badge: "48h delivery",
@@ -54,60 +115,10 @@ const services = {
       },
     ],
   },
-  model: {
-    label: "Model Shoots",
-    badge: "Pro models",
-    icon: Camera,
-    unit: "/ shoot",
-    description:
-      "Confident, professional on-camera models for your campaigns, promotions and product features. Pick the shoot that fits your brand.",
-    plans: [
-      {
-        name: "Starter",
-        price: "₹5,000",
-        desc: "Ideal for quick brand shoots and simple product features.",
-        features: [
-          "1 professional model",
-          "2-hour shoot session",
-          "1 outfit / look",
-          "10 edited photos",
-          "1 Revision",
-        ],
-      },
-      {
-        name: "Professional",
-        price: "₹9,999",
-        featured: true,
-        desc: "Built for campaigns and promotions that need variety and a short video clip.",
-        features: [
-          "1 professional model",
-          "Half-day shoot session",
-          "Up to 3 looks",
-          "25 edited photos",
-          "Short reel clip included",
-          "Social media usage rights",
-          "Styling guidance",
-        ],
-      },
-      {
-        name: "Premium",
-        price: "₹19,999",
-        desc: "For full productions with multiple models, looks and cinematic video.",
-        features: [
-          "Up to 2 models",
-          "Full-day shoot session",
-          "Unlimited looks",
-          "50+ edited photos",
-          "Cinematic video with editing",
-          "Extended usage rights",
-        ],
-      },
-    ],
-  },
 };
 
 const PricingSection = () => {
-  const [mode, setMode] = useState("video");
+  const [mode, setMode] = useState("model");
   const current = services[mode];
 
   return (
@@ -138,6 +149,7 @@ const PricingSection = () => {
             {Object.entries(services).map(([key, service]) => {
               const Icon = service.icon;
               const isActive = mode === key;
+
               return (
                 <button
                   key={key}
@@ -145,8 +157,10 @@ const PricingSection = () => {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setMode(key)}
-                  className={`relative z-10 flex items-center gap-2  px-4 py-2.5 text-sm font-semibold transition-colors sm:px-6 ${
-                    isActive ? "text-black" : "text-white/60 hover:text-white"
+                  className={`relative z-10 flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors sm:px-6 ${
+                    isActive
+                      ? "text-black"
+                      : "text-white/60 hover:text-white"
                   }`}
                 >
                   {isActive && (
@@ -160,8 +174,10 @@ const PricingSection = () => {
                       className="absolute inset-0 -z-10 rounded-full bg-white"
                     />
                   )}
+
                   <Icon size={15} />
                   {service.label}
+
                   <span
                     className={`hidden rounded-md px-1.5 py-0.5 text-[10px] font-bold sm:inline ${
                       isActive
@@ -180,6 +196,7 @@ const PricingSection = () => {
         <div className="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-3 lg:items-center lg:gap-5">
           {current.plans.map((plan, index) => {
             const f = plan.featured;
+
             const card = (
               <div
                 className={`flex flex-col rounded-3xl p-6 sm:p-7 ${
@@ -205,9 +222,9 @@ const PricingSection = () => {
                   {plan.desc}
                 </p>
 
-                <a                  
-                     href={`https://wa.me/919253174295?text=${encodeURIComponent(
-                    `Hello, I'm interested in the ${plan.name} plan. I'd like to discuss the details and get started.`,
+                <a
+                  href={`https://wa.me/919253174295?text=${encodeURIComponent(
+                    `Hello, I'm interested in the ${plan.name} ${current.label} package (${plan.price}). I'd like to discuss the details and get started.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -233,7 +250,10 @@ const PricingSection = () => {
                       >
                         <Check size={11} strokeWidth={3} />
                       </span>
-                      <span className="text-sm text-white/75">{feature}</span>
+
+                      <span className="text-sm text-white/75">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -278,9 +298,11 @@ const PricingSection = () => {
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-black">
                 <Scissors size={24} />
               </span>
+
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-white">
                 <Plus size={15} />
               </span>
+
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-black text-white">
                 <Camera size={24} />
               </span>
@@ -291,6 +313,7 @@ const PricingSection = () => {
                 Need a model <span className="font-serif italic">and</span> the
                 edit?
               </h3>
+
               <p className="mt-2 max-w-xl text-sm leading-6 text-white/80">
                 Book a model shoot and video editing together as one bundle.
                 Bulk videos, monthly editing and fully custom projects are
@@ -299,20 +322,20 @@ const PricingSection = () => {
             </div>
           </div>
 
-   <a
-  href={`https://wa.me/919253174295?text=${encodeURIComponent(
-    "Hello, I would like to get a combo quote for my project."
-  )}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group relative inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
->
-  Get Combo Quote
-  <ArrowUpRight
-    size={18}
-    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-  />
-</a>
+          <a
+            href={`https://wa.me/919253174295?text=${encodeURIComponent(
+              "Hello, I would like to get a combo quote for my project."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
+          >
+            Get Combo Quote
+            <ArrowUpRight
+              size={18}
+              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
         </motion.div>
       </div>
     </section>

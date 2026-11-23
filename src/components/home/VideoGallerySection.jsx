@@ -203,20 +203,9 @@ const VideoGallerySection = () => {
                           className="absolute inset-0 h-full w-full object-cover"
                         />
 
-                        {/* Video sirf center (active) slide me load hoti hai */}
+                        
                         {isActive && !selectedVideo && (
-                          // <video
-                          //   key={item.video}
-                          //   src={optimizeVideo(item.video, 540)}
-                          //   poster={item.thumbnail || getPoster(item.video)}
-                          //   autoPlay
-                          //   muted
-                          //   loop
-                          //   playsInline
-                          //   preload="auto"
-                          //   className="absolute inset-0 h-full w-full object-cover"
-
-                          // />
+                      
                           <video
                             key={item.video}
                             src={optimizeVideo(item.video, 540)}
