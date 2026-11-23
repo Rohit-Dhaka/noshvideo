@@ -299,16 +299,20 @@ const PricingSection = () => {
             </div>
           </div>
 
-          <Link
-            to="/contact"
-            className="group relative inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
-          >
-            Get Combo Quote
-            <ArrowUpRight
-              size={18}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </Link>
+   <a
+  href={`https://wa.me/919253174295?text=${encodeURIComponent(
+    "Hello, I would like to get a combo quote for my project."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
+>
+  Get Combo Quote
+  <ArrowUpRight
+    size={18}
+    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+  />
+</a>
         </motion.div>
       </div>
     </section>
