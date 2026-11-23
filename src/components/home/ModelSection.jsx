@@ -1,22 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { ArrowRight, ArrowLeft, Play } from "lucide-react";
-
 import { models } from "../../data/model.data.jsx";
-
 import "swiper/css";
-
 const AUTOPLAY_MS = 3500;
 
 const ModelSection = () => {
   const swiperRef = useRef(null);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-
   const total = models.length;
 
-  // Autoplay: moves the active card (and so the background) forward
   useEffect(() => {
     if (paused || total < 2) return;
     const id = setInterval(() => {
@@ -41,14 +35,12 @@ const ModelSection = () => {
       id="model"
       className="relative isolate flex min-h-screen overflow-hidden bg-black text-white"
     >
-      {/* Background: left half image, fades into black on the right */}
       <div className="absolute inset-y-0 left-0 -z-30 w-full lg:w-[60%]">
         {models.map((model, i) => (
           <img
-            // key={model.id}
             key={`${model.id}-${i}`}
             src={model.image}
-            alt=""
+            alt="model"
             aria-hidden="true"
             draggable={false}
             className={`absolute inset-0 h-full w-full object-cover object-[center_20%] transition-opacity duration-1000 ${
@@ -57,21 +49,14 @@ const ModelSection = () => {
           />
         ))}
 
-        {/* Left to right: image fades into the black background */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-black/25 to-black" />
 
-        {/* Top and bottom fade for smooth edges */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
 
-        {/* Extra dark layer on mobile so text stays readable */}
         <div className="absolute inset-0 bg-black/50 lg:hidden" />
       </div>
 
-      {/* Blue glow */}
-      {/* <div className="absolute -left-40 top-1/4 -z-10 h-[420px] w-[420px] rounded-full bg-blue-600/20 blur-3xl" /> */}
-
       <div className="relative z-10 mx-auto grid w-full max-w-[1500px] items-end gap-8 sm:gap-12 px-5 pb-14 pt-28 sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8 lg:px-16 lg:pb-16">
-        {/* LEFT: heading, description, buttons only */}
         <div className="max-w-xl">
           <h2 className="font-['Outfit'] text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[58px]">
             Your Brand.{" "}
@@ -89,21 +74,16 @@ const ModelSection = () => {
 
           <div className="mt-4 sm:mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#contact"
+              href="https://wa.me/919253174295?text=Hello%2C%20I%20would%20like%20to%20book%20a%20call%20to%20discuss%20my%20project."
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
             >
               Book a Call
             </a>
-            <a
-              href="#videos"
-              className="rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
-            >
-              View More Works
-            </a>
           </div>
         </div>
 
-        {/* RIGHT: slider (bottom right) */}
         <div
           className="min-w-0 lg:-mr-16 lg:pl-6"
           onMouseEnter={() => setPaused(true)}
@@ -124,7 +104,7 @@ const ModelSection = () => {
               return (
                 <SwiperSlide
                   // key={model.id}
-                   key={`${model.id}-${i}`}
+                  key={`${model.id}-${i}`}
                   className="!h-auto !w-[200px] sm:!w-[230px] lg:!w-[250px]"
                 >
                   <button
@@ -147,7 +127,6 @@ const ModelSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
 
-                    {/* Play icon */}
                     <span
                       className={`absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full backdrop-blur-md transition-colors ${
                         isActive ? "bg-blue-600" : "bg-white/25"
@@ -156,7 +135,6 @@ const ModelSection = () => {
                       <Play size={13} fill="white" className="text-white" />
                     </span>
 
-                    {/* Name */}
                     <span className="absolute bottom-3 left-3 right-3 truncate text-sm font-medium text-white">
                       {model.name}
                     </span>
@@ -166,7 +144,6 @@ const ModelSection = () => {
             })}
           </Swiper>
 
-          {/* Controls + progress line */}
           <div className="mt-6 flex items-center gap-3">
             <button
               type="button"

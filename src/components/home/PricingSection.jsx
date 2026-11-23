@@ -3,10 +3,6 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Check, Zap, Scissors, Camera, Plus } from "lucide-react";
 
-/* ------------------------------------------------------------------
-   Two services, two sets of packages. Edit text and prices here.
-   Switching the toggle swaps everything below it.
-------------------------------------------------------------------- */
 const services = {
   video: {
     label: "Video Editing",
@@ -119,10 +115,7 @@ const PricingSection = () => {
       id="pricing"
       className="relative isolate overflow-hidden bg-[#050505] py-14 text-white lg:py-20"
     >
-    
-
       <div className="mx-auto max-w-[1200px] px-5 sm:px-10 lg:px-16">
-        {/* INTRO */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +130,6 @@ const PricingSection = () => {
             </span>
           </h2>
 
-          {/* Service switch */}
           <div
             role="tablist"
             aria-label="Choose a service"
@@ -183,23 +175,11 @@ const PricingSection = () => {
               );
             })}
           </div>
-
-          {/* <motion.p
-            key={mode}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mt-6 max-w-xl text-sm leading-7 text-white/55 sm:text-base"
-          >
-            {current.description}
-          </motion.p> */}
         </motion.div>
 
-        {/* PLANS */}
         <div className="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-3 lg:items-center lg:gap-5">
           {current.plans.map((plan, index) => {
             const f = plan.featured;
-
             const card = (
               <div
                 className={`flex flex-col rounded-3xl p-6 sm:p-7 ${
@@ -225,8 +205,12 @@ const PricingSection = () => {
                   {plan.desc}
                 </p>
 
-                <Link
-                  to="/contact"
+                <a                  
+                     href={`https://wa.me/919253174295?text=${encodeURIComponent(
+                    `Hello, I'm interested in the ${plan.name} plan. I'd like to discuss the details and get started.`,
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-semibold transition-all duration-300 ${
                     f
                       ? "bg-blue-600 text-white shadow-[0_10px_30px_-10px_rgba(37,99,235,0.9)] hover:bg-blue-500"
@@ -235,7 +219,7 @@ const PricingSection = () => {
                 >
                   Book {plan.name}
                   <ArrowUpRight size={16} />
-                </Link>
+                </a>
 
                 <ul className="mt-8 space-y-3.5">
                   {plan.features.map((feature) => (
@@ -264,7 +248,6 @@ const PricingSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {f ? (
-                  /* Featured: card wrapped with "Most Recommended" tab */
                   <div className="rounded-[30px] border border-blue-500/30 bg-blue-500/15 p-1.5 pt-0 shadow-[0_30px_80px_-30px_rgba(37,99,235,0.6)]">
                     <div className="flex h-11 items-center justify-center gap-2 text-sm font-semibold text-blue-300">
                       <Zap size={15} fill="currentColor" />
@@ -280,7 +263,6 @@ const PricingSection = () => {
           })}
         </div>
 
-        {/* COMBO BANNER: model + edit together */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -306,8 +288,8 @@ const PricingSection = () => {
 
             <div>
               <h3 className="font-['Outfit'] text-xl font-semibold sm:text-2xl">
-                Need a model{" "}
-                <span className="font-serif italic">and</span> the edit?
+                Need a model <span className="font-serif italic">and</span> the
+                edit?
               </h3>
               <p className="mt-2 max-w-xl text-sm leading-6 text-white/80">
                 Book a model shoot and video editing together as one bundle.

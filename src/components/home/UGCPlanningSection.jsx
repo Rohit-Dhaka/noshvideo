@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
-// import { Link } from "react-router-dom";
 import {
   Target,
   PenLine,
@@ -9,8 +8,6 @@ import {
   PackageCheck,
   Check,
   Clock,
-  // ArrowUpRight,
-  // Sparkles,
   Star,
   FileVideo,
 } from "lucide-react";

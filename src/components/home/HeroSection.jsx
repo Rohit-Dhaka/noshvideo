@@ -40,64 +40,6 @@ const themes = {
   },
 };
 
-// const cards = [
-//   {
-//     id: 1,
-//     title: "Video Editing",
-//     subtitle: "Cuts & Storytelling",
-//     icon: Scissors,
-//     image: "",
-//     theme: "white",
-//   },
-//   {
-//     id: 2,
-//     title: "Reels & Shorts",
-//     subtitle: "Video Editing",
-//     icon: Film,
-//     image: "",
-//     theme: "soft",
-//   },
-//   {
-//     id: 3,
-//     title: "Ad Films",
-//     subtitle: "Video Editing",
-//     icon: Clapperboard,
-//     image: "",
-//     theme: "black",
-//   },
-//   {
-//     id: 4,
-//     title: "Brand Models",
-//     subtitle: "Model Portfolio",
-//     icon: Users,
-//     image: "",
-//     theme: "blue",
-//   },
-//   {
-//     id: 5,
-//     title: "Brand Shoots",
-//     subtitle: "Photo & Video",
-//     icon: Camera,
-//     image: "",
-//     theme: "white",
-//   },
-//   {
-//     id: 6,
-//     title: "Motion Graphics",
-//     subtitle: "Video Editing",
-//     icon: Wand2,
-//     image: "",
-//     theme: "black",
-//   },
-//   {
-//     id: 7,
-//     title: "Product Ads",
-//     subtitle: "Promotions",
-//     icon: Megaphone,
-//     image: "",
-//     theme: "soft",
-//   },
-// ];
 
 const cards = [
   {
@@ -158,11 +100,11 @@ const cards = [
   },
 ];
 
-const START_INDEX = 3; // card that is big in the center on load
+const START_INDEX = 3; 
 const AUTOPLAY_MS = 3200;
-const ANGLE = 15; // degrees between neighbouring cards
+const ANGLE = 15; 
 
-/* Floating role tags (with arrows pointing at the heading) */
+
 const tags = [
   {
     name: "Editor",
@@ -198,7 +140,7 @@ const tags = [
   },
 ];
 
-/* Rising glow particles (static positions, animated with CSS) */
+
 const particles = [
   { left: "8%", size: 4, dur: 9, delay: 0 },
   { left: "17%", size: 3, dur: 12, delay: 2 },
@@ -241,14 +183,14 @@ const HeroSection = () => {
   const goNext = () => setActive((p) => (p + 1) % total);
   const goPrev = () => setActive((p) => (p - 1 + total) % total);
 
-  // Auto-rotate the wheel
+  
   useEffect(() => {
     if (paused) return;
     const id = setInterval(goNext, AUTOPLAY_MS);
     return () => clearInterval(id);
   }, [paused]);
 
-  // Swipe support
+  
   const onPointerDown = (e) => {
     startX.current = e.clientX;
   };
@@ -259,7 +201,7 @@ const HeroSection = () => {
     startX.current = null;
   };
 
-  // Cursor spotlight
+  
   const onMouseMove = (e) => {
     const el = sectionRef.current;
     if (!el) return;
@@ -335,7 +277,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Floating role tags + animated arrows */}
+      
       {tags.map((tag, index) => (
         <div
           key={tag.name}
@@ -352,7 +294,7 @@ const HeroSection = () => {
             animationDelay: `${index * 0.4}s`,
           }}
         >
-          {/* Cursor + Label */}
+          
           <div
             className={`relative flex items-start gap-1 ${
               index === 0
@@ -365,7 +307,7 @@ const HeroSection = () => {
               animationDelay: `${index * 0.3}s`,
             }}
           >
-            {/* Animated Cursor */}
+            
             <MousePointer2
               size={19}
               fill="currentColor"
@@ -378,18 +320,18 @@ const HeroSection = () => {
               }`}
             />
 
-            {/* Animated Label */}
+            
             <span
               className={`relative mt-3 overflow-hidden rounded-full px-3 py-1 text-xs font-semibold shadow-lg transition-all duration-300 hover:scale-110 ${tag.color}`}
             >
               {tag.name}
 
-              {/* Shine effect */}
+              
               <span className="pointer-events-none absolute inset-0 -translate-x-full animate-[tagShine_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
             </span>
           </div>
 
-          {/* Animated Curved Arrow */}
+          
           <div
             className={`mt-6 ${
               index === 0
@@ -404,7 +346,7 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Text content */}
+      
       <div className="relative  z-20 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pt-22 text-center lg:pt-28">
         <h1
           className="hs-fade-up font-['Outfit'] text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
@@ -451,16 +393,19 @@ const HeroSection = () => {
           className="hs-fade-up mt-7 flex sm:flex-wrap items-center justify-center gap-3"
           style={{ animationDelay: ".3s" }}
         >
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black shadow-[0_10px_40px_-10px_rgba(255,255,255,0.35)] transition hover:bg-blue-600 hover:text-white hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.9)]"
-          >
-            Book a Call
-            <ArrowUpRight
-              size={16}
-              className="transition-transform max-sm:hidden duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </a>
+        <a
+  
+     href="https://wa.me/919253174295?text=Hello%2C%20I%20would%20like%20to%20book%20a%20call%20to%20discuss%20my%20project."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black shadow-[0_10px_40px_-10px_rgba(255,255,255,0.35)] transition hover:bg-blue-600 hover:text-white hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.9)]"
+>
+  Book a Call
+  <ArrowUpRight
+    size={16}
+    className="transition-transform max-sm:hidden duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+  />
+</a>
           <a
             href="#videos"
             className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-blue-500 hover:bg-white/10"
@@ -475,7 +420,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* WHEEL */}
+      
 
       <div
         className="relative z-10 mx-auto mt-10 h-[300px] w-full max-w-[1300px] touch-pan-y select-none overflow-hidden [--cw:210px] sm:h-[330px] sm:[--cw:250px] lg:h-[350px] lg:[--cw:280px]"
@@ -514,7 +459,7 @@ const HeroSection = () => {
                 opacity: hidden ? 0 : 1,
               }}
             >
-              {/* CARD */}
+              
               <div
                 className={`relative h-full w-full overflow-hidden rounded-[28px] border-2 transition-all duration-700 ${t.card} ${
                   isActive
@@ -522,7 +467,7 @@ const HeroSection = () => {
                     : "shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)] brightness-75"
                 }`}
               >
-                {/* VIDEO BACKGROUND */}
+                
                 <video
                   src={card.video}
                   autoPlay
@@ -534,20 +479,20 @@ const HeroSection = () => {
                   className="absolute inset-0 h-full w-full object-cover"
                 />
 
-                {/* VIDEO OVERLAY */}
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
-                {/* BLUE COLOR OVERLAY */}
+                
                 <div className="absolute inset-0 bg-blue-950/10" />
 
-                {/* LIGHT SWEEP ON ACTIVE CARD */}
+                
                 {isActive && (
                   <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div className="hs-shine absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                   </div>
                 )}
 
-                {/* TITLE */}
+                
                 <div className="absolute left-5 top-5 z-10">
                   <p className="font-['Outfit'] text-xl font-semibold leading-tight text-white sm:text-2xl">
                     {card.title}
@@ -556,7 +501,7 @@ const HeroSection = () => {
                   <p className="mt-1 text-xs text-white/75">{card.subtitle}</p>
                 </div>
 
-                {/* PLAY BUTTON */}
+                
                 <span
                   className={`absolute bottom-5 left-5 z-10 flex h-10 w-10 items-center justify-center rounded-full backdrop-blur-sm ${t.play}`}
                 >
@@ -571,7 +516,7 @@ const HeroSection = () => {
                   />
                 </span>
 
-                {/* CARD NUMBER */}
+                
                 <span className="absolute bottom-5 right-5 z-10 font-['Outfit'] text-xs font-medium tracking-widest text-white/70">
                   0{card.id}
                 </span>
@@ -580,9 +525,9 @@ const HeroSection = () => {
           );
         })}
 
-        {/* CONTROLS: ARROWS + DOTS + AUTOPLAY PROGRESS */}
+        
         <div className="absolute bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-black/60 px-3 py-2 shadow-lg backdrop-blur-md">
-          {/* PREVIOUS */}
+          
           <button
             type="button"
             onClick={goPrev}
@@ -592,7 +537,7 @@ const HeroSection = () => {
             <ArrowLeft size={16} />
           </button>
 
-          {/* DOTS */}
+          
           <div className="flex items-center gap-1.5">
             {cards.map((card, i) => {
               const isCurrent = i === active;
@@ -623,7 +568,7 @@ const HeroSection = () => {
             })}
           </div>
 
-          {/* NEXT */}
+          
           <button
             type="button"
             onClick={goNext}
@@ -635,183 +580,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* <div
-        className="relative z-10 mx-auto mt-10 h-[300px] w-full max-w-[1300px] touch-pan-y select-none overflow-hidden [--cw:210px] sm:h-[330px] sm:[--cw:250px] lg:h-[350px] lg:[--cw:280px]"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onPointerDown={onPointerDown}
-        onPointerUp={onPointerUp}
-      >
-        {cards.map((card, i) => {
-          const offset =
-            ((((i - active + half) % total) + total) % total) - half;
-          const abs = Math.abs(offset);
-          const isActive = offset === 0;
-          const Icon = card.icon;
-          const t = themes[card.theme];
-
-          const hidden = abs > 2;
-          const hideOnMobile = abs === 2;
-
-          return (
-            <article
-              key={card.id}
-              onClick={() => setActive(i)}
-              role="button"
-              aria-label={`Show ${card.title}`}
-              aria-current={isActive}
-              className={`absolute left-1/2 top-5 aspect-[3/4.2] w-[var(--cw)] cursor-pointer pt-6 sm:pt-8 transition-all duration-700 ease-[cubic-bezier(.4,.1,.2,1)] ${
-                hidden ? "pointer-events-none" : ""
-              } ${hideOnMobile ? "max-sm:pointer-events-none max-sm:!opacity-0" : ""}`}
-              style={{
-                transformOrigin: "50% 200%",
-                transform: `translateX(-50%) rotate(${offset * ANGLE}deg) scale(${
-                  isActive ? 1.06 : 1 - abs * 0.05
-                })`,
-                zIndex: 30 - abs * 10,
-                opacity: hidden ? 0 : 1,
-              }}
-            >
-              <div
-                className={`relative h-full w-full overflow-hidden rounded-[28px] border-2 transition-all duration-700 ${t.card} ${
-                  isActive
-                    ? "shadow-[0_30px_70px_-18px_rgba(37,99,235,0.75)]"
-                    : "shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)] brightness-75"
-                }`}
-              >
-                {card.image ? (
-                  <>
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      draggable={false}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div
-                      className={`flex h-24 w-24 items-center justify-center rounded-3xl transition-transform duration-700 ${
-                        isActive ? "scale-110" : ""
-                      } ${t.iconBox}`}
-                    >
-                      <Icon size={44} />
-                    </div>
-                  </div>
-                )}
-
-                
-                {isActive && (
-                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                    <div className="hs-shine absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
-                  </div>
-                )}
-
-                
-                <div className="absolute left-5 top-5">
-                  <p
-                    className={`font-['Outfit'] text-xl font-semibold leading-tight sm:text-2xl ${
-                      card.image ? "text-white" : ""
-                    }`}
-                  >
-                    {card.title}
-                  </p>
-                  <p
-                    className={`mt-1 text-xs ${
-                      card.image ? "text-white/75" : t.sub
-                    }`}
-                  >
-                    {card.subtitle}
-                  </p>
-                </div>
-
-                
-                <a
-                  href="#contact"
-                  tabIndex={isActive ? 0 : -1}
-                  className={`absolute right-4 top-5 hidden items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-black shadow-lg transition-all duration-500 hover:bg-black hover:text-white sm:inline-flex ${
-                    isActive
-                      ? "translate-y-0 opacity-100"
-                      : "pointer-events-none -translate-y-2 opacity-0"
-                  }`}
-                >
-                  Get Started
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white">
-                    <ArrowUpRight size={12} />
-                  </span>
-                </a>
-
-                
-                <span
-                  className={`absolute bottom-5 left-5 flex h-10 w-10 items-center justify-center rounded-full ${t.play}`}
-                >
-                  {isActive && (
-                    <span className="absolute inset-0 animate-ping rounded-full bg-white/40" />
-                  )}
-                  <Play
-                    size={14}
-                    fill="currentColor"
-                    className="relative ml-0.5"
-                  />
-                </span>
-              </div>
-            </article>
-          );
-        })}
-
-        
-        <div className="absolute bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-black/60 px-3 py-2 shadow-lg backdrop-blur-md">
-          <button
-            type="button"
-            onClick={goPrev}
-            aria-label="Previous card"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white transition hover:bg-white hover:text-black"
-          >
-            <ArrowLeft size={16} />
-          </button>
-
-          <div className="flex items-center gap-1.5">
-            {cards.map((card, i) => {
-              const isCurrent = i === active;
-              return (
-                <button
-                  key={card.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Go to ${card.title}`}
-                  className={`relative h-[6px] overflow-hidden rounded-full transition-all duration-500 ${
-                    isCurrent
-                      ? "w-8 bg-white/20"
-                      : "w-1.5 bg-white/25 hover:bg-white/50"
-                  }`}
-                >
-                  {isCurrent && (
-                    <span
-                      key={`${active}-${paused}`}
-                      className="hs-progress absolute inset-y-0 left-0 rounded-full bg-blue-500"
-                      style={{
-                        animationPlayState: paused ? "paused" : "running",
-                      }}
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </div>
-
-          <button
-            type="button"
-            onClick={goNext}
-            aria-label="Next card"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-white transition hover:bg-white hover:text-black"
-          >
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </div> */}
-
-      {/* Bottom fade */}
+      
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-10 bg-gradient-to-t from-[#050505] to-transparent" />
     </section>
   );

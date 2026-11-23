@@ -431,18 +431,7 @@ const AboutSection = () => {
             </div>
 
             {/* CTA */}
-            <div className="mt-10">
-              <Link
-                to="/contact"
-                className="  rounded-full group inline-flex items-center gap-3 bg-blue-600 py-4 px-8  text-xs font-bold uppercase tracking-[0.2em] text-white shadow-[0_15px_30px_-10px_rgba(37,99,235,0.6)] transition  hover:bg-white hover:text-blue-600 hover:border-blue-600"
-              >
-                Explore More
-                <ArrowUpRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </Link>
-            </div>
+     
           </motion.div>
         </div>
       </div>

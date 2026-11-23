@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  FaInstagram,
-  FaYoutube,
+  FaInstagram,  
   FaLinkedinIn,
   FaFacebookF,
 } from "react-icons/fa";
@@ -16,10 +15,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { name: "Instagram", icon: FaInstagram, url: "https://instagram.com/" },
-  { name: "YouTube", icon: FaYoutube, url: "https://youtube.com/" },
-  { name: "LinkedIn", icon: FaLinkedinIn, url: "https://linkedin.com/" },
-  { name: "Facebook", icon: FaFacebookF, url: "https://facebook.com/" },
+  { name: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/nosh_infotech/" },  
+  { name: "LinkedIn", icon: FaLinkedinIn, url: "https://www.linkedin.com/company/nosh-infotech/home/" },
+  { name: "Facebook", icon: FaFacebookF, url: "https://www.facebook.com/profile.php?id=61583257367995" },
 ];
 
 const Footer = () => {

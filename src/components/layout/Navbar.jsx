@@ -25,8 +25,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
 
-      const total =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
     };
 
@@ -86,8 +85,6 @@ const Navbar = () => {
         >
           {/* top glow line */}
           <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent" />
-
-       
 
           {/* LOGO */}
           <Link
@@ -154,20 +151,24 @@ const Navbar = () => {
 
           {/* RIGHT SIDE */}
           <div className="relative z-10 flex items-center gap-3">
-      
-
             {/* CTA */}
-            <Link
-              to="/contact"
+            <a
+              href={`https://wa.me/919253174295?text=${encodeURIComponent(
+                "Hello, I want to discuss a project.",
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-blue-600 py-1.5 pl-5 pr-1.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-blue-500 lg:inline-flex"
             >
               {/* shine */}
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+
               <span className="relative">Let's Talk</span>
+
               <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white text-blue-600 transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRight size={16} />
               </span>
-            </Link>
+            </a>
 
             {/* MOBILE BURGER */}
             <button
@@ -227,7 +228,6 @@ const Navbar = () => {
                       onClick={() => setIsMenuOpen(false)}
                       className="group flex items-baseline gap-4 border-b border-white/10 py-4"
                     >
-                     
                       <span
                         className={`sm:font-['Outfit'] text-xl font-medium sm:font-semibold transition-colors sm:text-5xl ${
                           active
@@ -253,16 +253,18 @@ const Navbar = () => {
               transition={{ delay: 0.5 }}
               className="relative mt-10"
             >
-              <Link
-                to="/contact"
+              <a
+                href="https://wa.me/919253174295?text=Hello%2C%20I%20want%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="inline-flex items-center gap-3 max-sm:w-full max-sm:justify-center rounded-full bg-blue-600 py-2 pl-6 pr-2 text-sm font-semibold text-white"
+                className="inline-flex items-center gap-3 max-sm:w-full max-sm:justify-center rounded-full bg-blue-600 py-2 pl-6 pr-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700"
               >
                 Let's Talk
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-blue-600">
                   <ArrowUpRight size={17} />
                 </span>
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         )}
