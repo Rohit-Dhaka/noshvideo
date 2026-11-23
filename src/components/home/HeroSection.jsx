@@ -9,9 +9,11 @@ import {
   Clapperboard,
   Camera,
   Users,
-  Wand2,  
+  Wand2,
   MousePointer2,
 } from "lucide-react";
+
+import LazyVideo from "../../components/common/LazyVideo";
 
 const themes = {
   black: {
@@ -40,7 +42,6 @@ const themes = {
   },
 };
 
-
 const cards = [
   {
     id: 1,
@@ -48,7 +49,7 @@ const cards = [
     subtitle: "Cuts & Storytelling",
     icon: Scissors,
     video:
-      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795242674/KanikaSharma1_1.mp4",    
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795242674/KanikaSharma1_1.mp4",
     theme: "white",
   },
   {
@@ -57,7 +58,7 @@ const cards = [
     subtitle: "Video Editing",
     icon: Film,
     video:
-      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241083/bhavyasharma1.mov",    
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241083/bhavyasharma1.mov",
     theme: "soft",
   },
   {
@@ -66,7 +67,7 @@ const cards = [
     subtitle: "Video Editing",
     icon: Clapperboard,
     video:
-      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795245679/deepaviskrama1_2.mp4",    
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795245679/deepaviskrama1_2.mp4",
     theme: "black",
   },
   {
@@ -75,7 +76,7 @@ const cards = [
     subtitle: "Model Portfolio",
     icon: Users,
     video:
-      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4",    
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4",
     theme: "blue",
   },
   {
@@ -85,7 +86,7 @@ const cards = [
     icon: Camera,
     video:
       "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240871/saloni1.mp4",
-    
+
     theme: "white",
   },
   {
@@ -95,15 +96,14 @@ const cards = [
     icon: Wand2,
     video:
       "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240902/Ishwariya1.mp4",
-    
+
     theme: "black",
   },
 ];
 
-const START_INDEX = 3; 
+const START_INDEX = 3;
 const AUTOPLAY_MS = 3200;
-const ANGLE = 15; 
-
+const ANGLE = 15;
 
 const tags = [
   {
@@ -139,7 +139,6 @@ const tags = [
     delay: "2s",
   },
 ];
-
 
 const particles = [
   { left: "8%", size: 4, dur: 9, delay: 0 },
@@ -183,14 +182,12 @@ const HeroSection = () => {
   const goNext = () => setActive((p) => (p + 1) % total);
   const goPrev = () => setActive((p) => (p - 1 + total) % total);
 
-  
   useEffect(() => {
     if (paused) return;
     const id = setInterval(goNext, AUTOPLAY_MS);
     return () => clearInterval(id);
   }, [paused]);
 
-  
   const onPointerDown = (e) => {
     startX.current = e.clientX;
   };
@@ -201,7 +198,6 @@ const HeroSection = () => {
     startX.current = null;
   };
 
-  
   const onMouseMove = (e) => {
     const el = sectionRef.current;
     if (!el) return;
@@ -277,7 +273,6 @@ const HeroSection = () => {
         ))}
       </div>
 
-      
       {tags.map((tag, index) => (
         <div
           key={tag.name}
@@ -294,7 +289,6 @@ const HeroSection = () => {
             animationDelay: `${index * 0.4}s`,
           }}
         >
-          
           <div
             className={`relative flex items-start gap-1 ${
               index === 0
@@ -307,7 +301,6 @@ const HeroSection = () => {
               animationDelay: `${index * 0.3}s`,
             }}
           >
-            
             <MousePointer2
               size={19}
               fill="currentColor"
@@ -320,18 +313,15 @@ const HeroSection = () => {
               }`}
             />
 
-            
             <span
               className={`relative mt-3 overflow-hidden rounded-full px-3 py-1 text-xs font-semibold shadow-lg transition-all duration-300 hover:scale-110 ${tag.color}`}
             >
               {tag.name}
 
-              
               <span className="pointer-events-none absolute inset-0 -translate-x-full animate-[tagShine_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
             </span>
           </div>
 
-          
           <div
             className={`mt-6 ${
               index === 0
@@ -346,7 +336,6 @@ const HeroSection = () => {
         </div>
       ))}
 
-      
       <div className="relative  z-20 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pt-22 text-center lg:pt-28">
         <h1
           className="hs-fade-up font-['Outfit'] text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
@@ -393,19 +382,18 @@ const HeroSection = () => {
           className="hs-fade-up mt-7 flex sm:flex-wrap items-center justify-center gap-3"
           style={{ animationDelay: ".3s" }}
         >
-        <a
-  
-     href="https://wa.me/919253174295?text=Hello%2C%20I%20would%20like%20to%20book%20a%20call%20to%20discuss%20my%20project."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black shadow-[0_10px_40px_-10px_rgba(255,255,255,0.35)] transition hover:bg-blue-600 hover:text-white hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.9)]"
->
-  Book a Call
-  <ArrowUpRight
-    size={16}
-    className="transition-transform max-sm:hidden duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-  />
-</a>
+          <a
+            href="https://wa.me/919253174295?text=Hello%2C%20I%20would%20like%20to%20book%20a%20call%20to%20discuss%20my%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black shadow-[0_10px_40px_-10px_rgba(255,255,255,0.35)] transition hover:bg-blue-600 hover:text-white hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.9)]"
+          >
+            Book a Call
+            <ArrowUpRight
+              size={16}
+              className="transition-transform max-sm:hidden duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
           <a
             href="#videos"
             className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-blue-500 hover:bg-white/10"
@@ -419,8 +407,6 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-
-      
 
       <div
         className="relative z-10 mx-auto mt-10 h-[300px] w-full max-w-[1300px] touch-pan-y select-none overflow-hidden [--cw:210px] sm:h-[330px] sm:[--cw:250px] lg:h-[350px] lg:[--cw:280px]"
@@ -459,7 +445,6 @@ const HeroSection = () => {
                 opacity: hidden ? 0 : 1,
               }}
             >
-              
               <div
                 className={`relative h-full w-full overflow-hidden rounded-[28px] border-2 transition-all duration-700 ${t.card} ${
                   isActive
@@ -467,32 +452,21 @@ const HeroSection = () => {
                     : "shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)] brightness-75"
                 }`}
               >
-                
-                <video
-                  src={card.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  draggable={false}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+            <LazyVideo
+  src={card.video}
+  className="absolute inset-0 h-full w-full"
+/>
 
-                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
-                
                 <div className="absolute inset-0 bg-blue-950/10" />
 
-                
                 {isActive && (
                   <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div className="hs-shine absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                   </div>
                 )}
 
-                
                 <div className="absolute left-5 top-5 z-10">
                   <p className="font-['Outfit'] text-xl font-semibold leading-tight text-white sm:text-2xl">
                     {card.title}
@@ -501,7 +475,6 @@ const HeroSection = () => {
                   <p className="mt-1 text-xs text-white/75">{card.subtitle}</p>
                 </div>
 
-                
                 <span
                   className={`absolute bottom-5 left-5 z-10 flex h-10 w-10 items-center justify-center rounded-full backdrop-blur-sm ${t.play}`}
                 >
@@ -516,7 +489,6 @@ const HeroSection = () => {
                   />
                 </span>
 
-                
                 <span className="absolute bottom-5 right-5 z-10 font-['Outfit'] text-xs font-medium tracking-widest text-white/70">
                   0{card.id}
                 </span>
@@ -525,9 +497,7 @@ const HeroSection = () => {
           );
         })}
 
-        
         <div className="absolute bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-black/60 px-3 py-2 shadow-lg backdrop-blur-md">
-          
           <button
             type="button"
             onClick={goPrev}
@@ -537,7 +507,6 @@ const HeroSection = () => {
             <ArrowLeft size={16} />
           </button>
 
-          
           <div className="flex items-center gap-1.5">
             {cards.map((card, i) => {
               const isCurrent = i === active;
@@ -568,7 +537,6 @@ const HeroSection = () => {
             })}
           </div>
 
-          
           <button
             type="button"
             onClick={goNext}
@@ -580,7 +548,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-10 bg-gradient-to-t from-[#050505] to-transparent" />
     </section>
   );

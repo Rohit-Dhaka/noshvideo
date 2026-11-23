@@ -70,7 +70,7 @@ const AboutSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [rating, setRating] = useState(4);
 
-  // Autoplay the video on load
+  
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -147,12 +147,12 @@ const AboutSection = () => {
         }
       `}</style>
 
-      {/* soft background glow */}
+      
       <div className="pointer-events-none absolute -left-24 top-1/3 -z-10 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
 
       <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
-          {/* LEFT: COLLAGE */}
+          
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="relative mx-auto aspect-[1/1.08] w-full max-w-[560px]"
           >
-            {/* CARD 1: LIVE VIDEO */}
+            
             <div className="group absolute left-0 top-[14%] z-10 h-[58%] w-[49%] overflow-hidden rounded-2xl bg-blue-100 shadow-[0_20px_50px_-15px_rgba(37,99,235,0.35)]">
               <video
                 ref={videoRef}
@@ -169,31 +169,31 @@ const AboutSection = () => {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="none"
                 onLoadedData={(e) => {
                   const video = e.currentTarget;
 
                   if (video.paused) {
-                    video.play().catch((error) => {
-                      console.log("Video autoplay failed:", error);
+                    video.play().catch(() => {
+                      setIsPlaying(false);
                     });
                   }
                 }}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 onVolumeChange={(e) => setIsMuted(e.currentTarget.muted)}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover"
               />
 
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-950/70 via-transparent to-blue-950/10" />
 
-              {/* LIVE badge */}
+              
               <div className="absolute left-2.5 top-2.5 flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold tracking-wider text-black sm:text-[10px]">
                 <span className="h-[6px] w-1.5 animate-pulse rounded-full bg-red-500" />
                 LIVE
               </div>
 
-              {/* Play / pause */}
+              
               <button
                 type="button"
                 onClick={togglePlay}
@@ -215,7 +215,7 @@ const AboutSection = () => {
                 </span>
               </button>
 
-              {/* Caption */}
+              
               <div className="pointer-events-none absolute bottom-3 left-3 right-12">
                 <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-blue-200 sm:text-[10px]">
                   Showreel 2026
@@ -225,7 +225,7 @@ const AboutSection = () => {
                 </p>
               </div>
 
-              {/* Mute */}
+              
               <button
                 type="button"
                 onClick={toggleMute}
@@ -236,7 +236,7 @@ const AboutSection = () => {
               </button>
             </div>
 
-            {/* CARD 2: NOW EDITING (timeline) */}
+            
 
             <div className="absolute right-0 top-[30%] z-10 h-[62%] w-[50%] overflow-hidden rounded-2xl bg-blue-600 p-3 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.55)] sm:p-4">
               <div className="flex items-center justify-between">
@@ -250,7 +250,7 @@ const AboutSection = () => {
                 </span>
               </div>
 
-              {/* Full size video preview */}
+              
               <div className="relative mt-3 h-[calc(100%-75px)] min-h-0 overflow-hidden rounded-xl bg-blue-900">
                 <video
                   src={CompanyVideo2}
@@ -258,16 +258,15 @@ const AboutSection = () => {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-
                 <span className="absolute bottom-2 left-2 z-10 text-[8px] font-semibold uppercase tracking-wider text-white/90 sm:text-[10px]">
                   Brand Reel · 4K
                 </span>
               </div>
 
-              {/* Timeline */}
+              
               <div className="relative mt-3 space-y-1.5">
                 {tracks.map((track, i) => (
                   <div key={i} className="flex gap-1">
@@ -287,7 +286,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* CARD 3: STATS */}
+            
             <div className="ab-float absolute left-[33%] top-0 z-20 w-[47%] rounded-2xl bg-white p-3 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)] sm:p-4">
               <div className="flex items-start justify-between">
                 <p className="font-['Outfit'] text-xl font-bold leading-none text-black sm:text-3xl">
@@ -313,7 +312,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* CARD 4: RATINGS */}
+            
             <div className="ab-float-slow absolute bottom-0 left-[7%] z-20 w-[46%] rounded-2xl bg-white p-3 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)] sm:p-4">
               <div className="flex items-center justify-between">
                 <p className="text-[10px] font-bold text-black sm:text-xs">
@@ -344,7 +343,7 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT: CONTENT */}
+          
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -385,7 +384,7 @@ const AboutSection = () => {
               brand promotions, we combine creativity, storytelling and
               precision to make every frame count.
             </p>
-            {/* Process */}
+            
             <div className="mt-7 grid grid-cols-3 gap-3">
               {process.map((item) => {
                 const Icon = item.icon;
@@ -411,7 +410,7 @@ const AboutSection = () => {
               })}
             </div>
 
-            {/* Highlights */}
+            
             <div className="mt-7 space-y-3">
               {highlights.map((item, index) => (
                 <motion.div
@@ -430,8 +429,7 @@ const AboutSection = () => {
               ))}
             </div>
 
-            {/* CTA */}
-     
+            
           </motion.div>
         </div>
       </div>

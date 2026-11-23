@@ -92,7 +92,7 @@ const steps = [
   },
 ];
 
-/* ---------- Mini visuals for each step ---------- */
+
 
 const StrategyVisual = () => {
   const goals = [
@@ -304,7 +304,7 @@ const visuals = {
   delivery: DeliveryVisual,
 };
 
-/* ---------- Main section ---------- */
+
 
 const UGCPlanningSection = () => {
   const sectionRef = useRef(null);
@@ -313,7 +313,7 @@ const UGCPlanningSection = () => {
   const [active, setActive] = useState(0);
   const [tick, setTick] = useState(0);
 
-  // Auto-play: moves to the next step while the section is on screen
+  
   useEffect(() => {
     if (!inView) return;
     const timer = setTimeout(() => {
@@ -349,7 +349,7 @@ const UGCPlanningSection = () => {
       `}</style>
 
       <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
-        {/* HEADER */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -374,9 +374,9 @@ const UGCPlanningSection = () => {
           </p>
         </motion.div>
 
-        {/* BODY */}
+        
         <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-          {/* LEFT: TIMELINE */}
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -387,11 +387,11 @@ const UGCPlanningSection = () => {
               const StepIcon = item.icon;
               const isActive = index === active;
               const isDone = index < active;
-              // const isLast = index === steps.length - 1;
+              
 
               return (
                 <div key={item.id} className="flex gap-3 sm:gap-4 max-sm:items-center">
-                  {/* node + connector */}
+                  
                   <div className="flex flex-col items-center">
                     <button
                       type="button"
@@ -409,7 +409,7 @@ const UGCPlanningSection = () => {
                     </button>
                   </div>
 
-                  {/* text */}
+          
                   <button
                     type="button"
                     onClick={() => goTo(index)}
@@ -442,7 +442,7 @@ const UGCPlanningSection = () => {
             })}
           </motion.div>
 
-          {/* RIGHT: DETAIL PANEL */}
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -451,7 +451,7 @@ const UGCPlanningSection = () => {
             className="lg:sticky lg:top-28 lg:self-start"
           >
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(37,99,235,0.35)] sm:p-8">
-              {/* watermark number */}
+              
               <span className="pointer-events-none absolute -right-2 -top-4 select-none font-['Outfit'] text-[130px] font-bold leading-none text-blue-600/[0.06] sm:text-[170px]">
                 {step.number}
               </span>
@@ -465,7 +465,7 @@ const UGCPlanningSection = () => {
                   transition={{ duration: 0.35 }}
                   className="relative"
                 >
-                  {/* top row */}
+                  
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)]">
                       <Icon size={22} />
@@ -488,12 +488,12 @@ const UGCPlanningSection = () => {
                     {step.text}
                   </p>
 
-                  {/* visual */}
+                  
                   <div className="mt-6">
                     <Visual />
                   </div>
 
-                  {/* checklist */}
+                  
                   <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
                     {step.points.map((point) => (
                       <div

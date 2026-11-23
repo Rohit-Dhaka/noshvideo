@@ -4,7 +4,7 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import { ArrowLeft, ArrowRight, Sparkles, X, Play, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { videos } from "../../data/videos.data";
-
+import LazyVideo from "../../components/common/LazyVideo";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
@@ -16,7 +16,7 @@ const categories = [
   "Product Video",
 ];
 
-// Cloudinary video ko chhota + optimized banata hai (.mov bhi .mp4 ban jata hai)
+
 const optimizeVideo = (url, width = 540) =>
   url && url.includes("/upload/")
     ? url
@@ -24,7 +24,7 @@ const optimizeVideo = (url, width = 540) =>
         .replace(/\.(mov|mp4|webm)$/i, ".mp4")
     : url;
 
-// Video ka pehla frame (agar thumbnail na ho)
+
 const getPoster = (url) =>
   url && url.includes("/upload/")
     ? url
@@ -56,7 +56,7 @@ const VideoGallerySection = () => {
 
   const canLoop = displayVideos.length >= 6;
 
-  // Close full-screen video
+  
   const closePlayer = () => {
     if (playerRef.current) {
       playerRef.current.pause();
@@ -65,7 +65,7 @@ const VideoGallerySection = () => {
     setSelectedVideo(null);
   };
 
-  // Escape key handler
+  
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -80,7 +80,7 @@ const VideoGallerySection = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedVideo]);
 
-  // Modal khulne par autoplay roko, band hone par chalao
+  
   useEffect(() => {
     const swiper = swiperRef.current;
 
@@ -99,21 +99,21 @@ const VideoGallerySection = () => {
         id="videos"
         className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/50 to-white py-20 text-slate-950 transition-colors duration-500 lg:py-28"
       >
-        {/* Ambient Glow */}
+        
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-300/20 blur-3xl" />
 
         <div className="relative mx-auto w-full px-5 sm:px-8 lg:px-12">
-          {/* SECTION HEADER */}
+          
           <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
-              {/* Label */}
+              
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-1.5 text-xs font-bold tracking-widest text-blue-700 shadow-sm">
                 <Sparkles size={14} className="text-blue-600" />
 
                 <span>SELECTED WORKS // 2026 SHOWREEL</span>
               </div>
 
-              {/* Heading */}
+              
               <h2 className="font-['Outfit'] text-[36px] font-black uppercase leading-[0.95] text-slate-950 sm:text-5xl lg:text-6xl">
                 Built For Feeds.
                 <span className="my-1 sm:block font-serif sm: font-bold normal-case tracking-normal text-blue-600">
@@ -122,7 +122,7 @@ const VideoGallerySection = () => {
               </h2>
             </div>
 
-            {/* Category Filters */}
+            
             <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => (
                 <button
@@ -144,7 +144,7 @@ const VideoGallerySection = () => {
             </div>
           </div>
 
-          {/* 3D COVERFLOW SWIPER */}
+          
           <div className="relative mx-auto w-full">
             <Swiper
               key={activeCategory}
@@ -192,9 +192,9 @@ const VideoGallerySection = () => {
                           : "scale-95 border-white opacity-85 shadow-md hover:opacity-100"
                       }`}
                     >
-                      {/* Vertical Video */}
+                      
                       <div className="relative aspect-[9/16] w-full overflow-hidden">
-                        {/* Thumbnail: hamesha dikhta hai, sirf chhoti image load hoti hai */}
+                        
                         <img
                           src={item.thumbnail || getPoster(item.video)}
                           alt={item.title}
@@ -203,36 +203,18 @@ const VideoGallerySection = () => {
                           className="absolute inset-0 h-full w-full object-cover"
                         />
 
-                        
                         {isActive && !selectedVideo && (
-                      
-                          <video
+                          <LazyVideo
                             key={item.video}
                             src={optimizeVideo(item.video, 540)}
-                            poster={item.thumbnail || getPoster(item.video)}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            preload="metadata"
-                            className="absolute inset-0 h-full w-full object-cover"
-                            onError={(e) => {
-                              console.error(
-                                "Video failed to load:",
-                                item.video,
-                              );
-                              console.error(
-                                "Video error:",
-                                e.currentTarget.error,
-                              );
-                            }}
+                            className="absolute inset-0 h-full w-full"
                           />
                         )}
 
-                        {/* Vignette Overlay */}
+                        
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-slate-950/40" />
 
-                        {/* Top Badges */}
+                        
                         <div className="absolute left-3.5 right-3.5 top-3.5 flex items-center justify-between">
                           <span className="rounded-full border border-white/20 bg-black/60 px-2.5 py-1 text-[10px] font-bold text-white">
                             {item.resolution}
@@ -244,7 +226,7 @@ const VideoGallerySection = () => {
                           </span>
                         </div>
 
-                        {/* Play Button */}
+                        
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                           <div
                             className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/60 bg-black/30 text-white transition-all duration-300 ${
@@ -261,7 +243,7 @@ const VideoGallerySection = () => {
                           </div>
                         </div>
 
-                        {/* Bottom Info */}
+                        
                         <div className="absolute bottom-4 left-4 right-4 text-white">
                           <p className="text-[10px] font-bold uppercase tracking-widest text-sky-300">
                             {item.category}
@@ -271,7 +253,7 @@ const VideoGallerySection = () => {
                             {item.title}
                           </h3>
 
-                          {/* Tags */}
+                          
                           <div className="mt-2.5 flex flex-wrap gap-1.5">
                             {item.tags.slice(0, 2).map((tag) => (
                               <span
@@ -290,7 +272,7 @@ const VideoGallerySection = () => {
               ))}
             </Swiper>
 
-            {/* Empty State */}
+            
             {filteredVideos.length === 0 && (
               <div className="py-16 text-center text-sm font-medium text-slate-500">
                 No videos found in this category.
@@ -298,7 +280,7 @@ const VideoGallerySection = () => {
             )}
           </div>
 
-          {/* Navigation Controls */}
+          
           <div className="mt-8 flex items-center justify-center gap-4">
             <button
               type="button"
@@ -326,7 +308,7 @@ const VideoGallerySection = () => {
         </div>
       </section>
 
-      {/* FULL-SCREEN VIDEO MODAL */}
+      
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
@@ -352,7 +334,9 @@ const VideoGallerySection = () => {
                 }
                 autoPlay
                 controls
+                muted
                 playsInline
+                preload="none"
                 className="h-full w-full object-cover"
               />
 

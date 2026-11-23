@@ -19,7 +19,7 @@ const ModelSection = () => {
     return () => clearInterval(id);
   }, [paused, total]);
 
-  // Keep the slider scrolled to the active card
+  
   useEffect(() => {
     swiperRef.current?.slideTo(active);
   }, [active]);
@@ -102,8 +102,7 @@ const ModelSection = () => {
             {models.map((model, i) => {
               const isActive = i === active;
               return (
-                <SwiperSlide
-                  // key={model.id}
+                <SwiperSlide                  
                   key={`${model.id}-${i}`}
                   className="!h-auto !w-[200px] sm:!w-[230px] lg:!w-[250px]"
                 >

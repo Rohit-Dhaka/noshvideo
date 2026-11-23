@@ -25,12 +25,12 @@ const Footer = () => {
   return (
     <footer className="bg-white px-3 pb-3 pt-6 sm:px-6 sm:pb-6">
       <div className="relative isolate overflow-hidden rounded-[32px] bg-black text-white">
-        {/* Background glow + dotted grid */}
+        
         <div className="absolute -left-32 -top-32 -z-10 h-[360px] w-[360px] rounded-full bg-blue-600/30 blur-[110px]" />
         <div className="absolute -right-24 bottom-0 -z-10 h-[300px] w-[300px] rounded-full bg-blue-500/15 blur-[110px]" />
 
         <div className="relative mx-auto flex max-w-[1400px] flex-col items-center px-5 pt-14 text-center sm:px-10 lg:px-16 lg:pt-16">
-          {/* Back to top (extra) */}
+          
           <button
             type="button"
             onClick={scrollToTop}
@@ -43,7 +43,7 @@ const Footer = () => {
             />
           </button>
 
-          {/* Social links */}
+          
           <div className="flex items-center justify-center gap-3">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -62,7 +62,7 @@ const Footer = () => {
             })}
           </div>
 
-          {/* Navigation */}
+          
           <nav
             aria-label="Footer navigation"
             className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4"
@@ -79,13 +79,13 @@ const Footer = () => {
             ))}
           </nav>
 
-          {/* Copyright */}
+          
           <p className="mt-9 w-full border-t border-white/10 pt-6 text-xs text-white">
             © {new Date().getFullYear()} NOSH INFOTECH. All rights reserved.
           </p>
         </div>
 
-        {/* Giant brand name */}
+        
         <Link
           to="/"
           aria-label="Nosh Infotech home"

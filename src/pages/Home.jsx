@@ -5,7 +5,7 @@ import ModelSection from "../components/home/ModelSection"
 import PricingSection from "../components/home/PricingSection"
 import VideoGallerySection from "../components/home/VideoGallerySection"
 import UGCPlanningSection from '../components/home/UGCPlanningSection'
-// import ContactSection from "../components/home/ContactSection"
+
 
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
         <VideoGallerySection/>
         <PricingSection/>
         <UGCPlanningSection/>
-        {/* <ContactSection/> */}
+        
     </main>
   )
 }

@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  // Scroll effect + reading progress
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -34,7 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Section navigation
+  
   useEffect(() => {
     if (!location.hash) {
       if (location.pathname === "/") {
@@ -53,12 +53,12 @@ const Navbar = () => {
     });
   }, [location.pathname, location.hash]);
 
-  // Close mobile menu on route change
+  
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname, location.hash]);
 
-  // Lock body scroll when mobile menu is open
+  
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
@@ -83,10 +83,10 @@ const Navbar = () => {
               : "mt-0 h-[68px] max-w-[100%] rounded-none border-x-0 border-t-0 px-5 shadow-none sm:px-10 lg:px-16"
           }`}
         >
-          {/* top glow line */}
+          
           <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent" />
 
-          {/* LOGO */}
+          
           <Link
             to="/"
             onClick={() => setIsMenuOpen(false)}
@@ -101,7 +101,7 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* DESKTOP NAV */}
+          
           <nav
             onMouseLeave={() => setHovered(null)}
             className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex"
@@ -149,9 +149,9 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* RIGHT SIDE */}
+          
           <div className="relative z-10 flex items-center gap-3">
-            {/* CTA */}
+            
             <a
               href={`https://wa.me/919253174295?text=${encodeURIComponent(
                 "Hello, I want to discuss a project.",
@@ -160,7 +160,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-blue-600 py-1.5 pl-5 pr-1.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-blue-500 lg:inline-flex"
             >
-              {/* shine */}
+              
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
               <span className="relative">Let's Talk</span>
@@ -170,7 +170,7 @@ const Navbar = () => {
               </span>
             </a>
 
-            {/* MOBILE BURGER */}
+            
             <button
               type="button"
               onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -198,7 +198,7 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* MOBILE FULLSCREEN MENU */}
+      
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -208,7 +208,7 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 flex flex-col justify-center overflow-hidden bg-black/95 px-8 backdrop-blur-xl sm:px-12 lg:hidden"
           >
-            {/* glow blobs */}
+            
             <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-blue-600/30 blur-3xl" />
             <div className="pointer-events-none absolute -left-24 bottom-10 h-72 w-72 rounded-full bg-blue-800/30 blur-3xl" />
 

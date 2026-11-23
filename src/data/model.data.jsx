@@ -1,7 +1,6 @@
 import KanikaSharma from "../assets/Images/KanikaSharma.webp";
 import BhavyaSharma from "../assets/Images/bhavyasharma.webp";
 import DeepaVishrama from "../assets/Images/deepaviskrama.webp";
-// import Fiza from '../assets/Images/fiza.webp'
 import Fiza from "../assets/Images/fiza.png";
 import Saloni from "../assets/Images/saloni.webp";
 import Ishwariya from "../assets/Images/Ishwariya.webp";

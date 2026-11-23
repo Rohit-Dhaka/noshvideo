@@ -11,16 +11,14 @@ import {
   Loader2,
 } from "lucide-react";
 
-/* ----------------------------------------------------------
-   EDIT THESE DETAILS
-   ---------------------------------------------------------- */
+
 const CONTACT = {
   email: "hello@yourstudio.com",
   phone: "+91 00000 00000",
   location: "Haryana, India",
   hoursLabel: "Mon–Sat · 10:00 AM – 7:00 PM IST",
   timezone: "Asia/Kolkata",
-  openFrom: 10, // 24h format
+  openFrom: 10, 
   openTo: 19,
   socials: [
     { name: "Instagram", href: "#" },
@@ -46,7 +44,7 @@ const perks = [
   "Revisions included",
 ];
 
-// waveform bar settings (height pattern + timing)
+
 const bars = Array.from({ length: 28 }, (_, i) => ({
   delay: (i * 0.09) % 1.4,
   duration: 0.9 + ((i * 37) % 10) / 10,
@@ -67,9 +65,9 @@ const ContactSection = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [status, setStatus] = useState("idle"); 
 
-  // Live "open now" status
+  
   useEffect(() => {
     const check = () => {
       const now = new Date(
@@ -99,7 +97,7 @@ const ContactSection = () => {
     setErrors((prev) => ({ ...prev, services: undefined }));
   };
 
-  // Form completion progress (5 key fields)
+  
   const filled = [
     form.services.length > 0,
     !!form.budget,
@@ -128,7 +126,7 @@ const ContactSection = () => {
 
     setStatus("sending");
 
-    // TODO: connect your API / EmailJS / Formspree here and send `form`.
+    
     setTimeout(() => setStatus("sent"), 1400);
   };
 
@@ -188,7 +186,7 @@ const ContactSection = () => {
       <div className="pointer-events-none absolute -right-24 top-10 -z-10 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
 
       <div className="mx-auto max-w-[1300px] px-5 sm:px-10 lg:px-16">
-        {/* HEADER */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -211,7 +209,7 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        {/* MAIN CARD */}
+        
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -219,13 +217,12 @@ const ContactSection = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-12 grid overflow-hidden rounded-[32px] bg-black shadow-[0_40px_90px_-30px_rgba(37,99,235,0.55)] lg:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:rounded-[40px]"
         >
-          {/* LEFT: INFO */}
+          
           <div className="relative isolate flex flex-col justify-between gap-10 overflow-hidden p-7 text-white sm:p-10">
             <div className="pointer-events-none absolute -left-20 -top-20 -z-10 h-72 w-72 rounded-full bg-blue-600/40 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 right-0 -z-10 h-72 w-72 rounded-full bg-blue-800/40 blur-3xl" />
 
-            <div>
-              {/* live status */}
+            <div>              
               <div
                 className={`inline-flex items-center gap-2.5 rounded-full border px-4 py-2 text-xs font-semibold ${
                   isOpen
@@ -260,7 +257,7 @@ const ContactSection = () => {
                 {CONTACT.hoursLabel}
               </p>
 
-              {/* contact rows */}
+              
               <div className="mt-8 space-y-3">
                 {contactRows.map((row) => {
                   const RowIcon = row.icon;
@@ -301,7 +298,7 @@ const ContactSection = () => {
                 })}
               </div>
 
-              {/* perks */}
+              
               <div className="mt-6 flex flex-wrap gap-2">
                 {perks.map((perk) => (
                   <span
@@ -316,7 +313,7 @@ const ContactSection = () => {
             </div>
 
             <div>
-              {/* waveform */}
+              
               <div
                 aria-hidden="true"
                 className="flex h-14 items-end gap-[3px] opacity-80"
@@ -333,7 +330,7 @@ const ContactSection = () => {
                 ))}
               </div>
 
-              {/* socials */}
+              
               <div className="mt-6 flex flex-wrap items-center gap-2">
                 <span className="mr-1 text-xs text-white/40">Follow us</span>
                 {CONTACT.socials.map((social) => (
@@ -352,7 +349,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* RIGHT: FORM */}
+          
           <div className="m-2.5 rounded-[26px] bg-white p-6 sm:m-3 sm:p-9 lg:rounded-[32px]">
             <AnimatePresence mode="wait">
               {status === "sent" ? (
@@ -401,7 +398,7 @@ const ContactSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  {/* progress */}
+                  
                   <div className="mb-7">
                     <div className="mb-2 flex items-center justify-between text-[11px] font-semibold tracking-wide">
                       <span className="text-black/70">
@@ -420,7 +417,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  {/* 01 services */}
+                  
                   <div>
                     <div className="mb-3 flex items-center justify-between">
                       <p className="flex items-center gap-2 text-sm font-bold">
@@ -456,7 +453,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  {/* 02 budget */}
+                  
                   <div className="mt-7">
                     <div className="mb-3 flex items-center justify-between">
                       <p className="flex items-center gap-2 text-sm font-bold">
@@ -491,7 +488,7 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  {/* 03 details */}
+                  
                   <div className="mt-7">
                     <p className="mb-3 flex items-center gap-2 text-sm font-bold">
                       <span className="text-blue-600">03</span>
@@ -544,7 +541,7 @@ const ContactSection = () => {
                     )}
                   </div>
 
-                  {/* submit */}
+                  
                   <button
                     type="submit"
                     disabled={status === "sending"}
