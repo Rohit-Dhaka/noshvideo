@@ -9,16 +9,10 @@ import {
   Clapperboard,
   Camera,
   Users,
-  Wand2,
-  Megaphone,
+  Wand2,  
   MousePointer2,
 } from "lucide-react";
 
-/* ------------------------------------------------------------------
-   Wheel cards. Add your own images in `image`
-   (e.g. "/images/reels.jpg"). If empty, a clean icon card is shown.
-   Theme per card: "black" | "white" | "blue" | "soft"
-------------------------------------------------------------------- */
 const themes = {
   black: {
     card: "bg-zinc-950 border-white/15 text-white",
@@ -46,13 +40,73 @@ const themes = {
   },
 };
 
+// const cards = [
+//   {
+//     id: 1,
+//     title: "Video Editing",
+//     subtitle: "Cuts & Storytelling",
+//     icon: Scissors,
+//     image: "",
+//     theme: "white",
+//   },
+//   {
+//     id: 2,
+//     title: "Reels & Shorts",
+//     subtitle: "Video Editing",
+//     icon: Film,
+//     image: "",
+//     theme: "soft",
+//   },
+//   {
+//     id: 3,
+//     title: "Ad Films",
+//     subtitle: "Video Editing",
+//     icon: Clapperboard,
+//     image: "",
+//     theme: "black",
+//   },
+//   {
+//     id: 4,
+//     title: "Brand Models",
+//     subtitle: "Model Portfolio",
+//     icon: Users,
+//     image: "",
+//     theme: "blue",
+//   },
+//   {
+//     id: 5,
+//     title: "Brand Shoots",
+//     subtitle: "Photo & Video",
+//     icon: Camera,
+//     image: "",
+//     theme: "white",
+//   },
+//   {
+//     id: 6,
+//     title: "Motion Graphics",
+//     subtitle: "Video Editing",
+//     icon: Wand2,
+//     image: "",
+//     theme: "black",
+//   },
+//   {
+//     id: 7,
+//     title: "Product Ads",
+//     subtitle: "Promotions",
+//     icon: Megaphone,
+//     image: "",
+//     theme: "soft",
+//   },
+// ];
+
 const cards = [
   {
     id: 1,
     title: "Video Editing",
     subtitle: "Cuts & Storytelling",
     icon: Scissors,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795242674/KanikaSharma1_1.mp4",    
     theme: "white",
   },
   {
@@ -60,7 +114,8 @@ const cards = [
     title: "Reels & Shorts",
     subtitle: "Video Editing",
     icon: Film,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241083/bhavyasharma1.mov",    
     theme: "soft",
   },
   {
@@ -68,7 +123,8 @@ const cards = [
     title: "Ad Films",
     subtitle: "Video Editing",
     icon: Clapperboard,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795245679/deepaviskrama1_2.mp4",    
     theme: "black",
   },
   {
@@ -76,7 +132,8 @@ const cards = [
     title: "Brand Models",
     subtitle: "Model Portfolio",
     icon: Users,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795241015/fiza1.mp4",    
     theme: "blue",
   },
   {
@@ -84,7 +141,9 @@ const cards = [
     title: "Brand Shoots",
     subtitle: "Photo & Video",
     icon: Camera,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240871/saloni1.mp4",
+    
     theme: "white",
   },
   {
@@ -92,16 +151,10 @@ const cards = [
     title: "Motion Graphics",
     subtitle: "Video Editing",
     icon: Wand2,
-    image: "",
+    video:
+      "https://res.cloudinary.com/dtuwcxxxu/video/upload/v1795240902/Ishwariya1.mp4",
+    
     theme: "black",
-  },
-  {
-    id: 7,
-    title: "Product Ads",
-    subtitle: "Promotions",
-    icon: Megaphone,
-    image: "",
-    theme: "soft",
   },
 ];
 
@@ -282,76 +335,74 @@ const HeroSection = () => {
         ))}
       </div>
 
-   
-{/* Floating role tags + animated arrows */}
-{tags.map((tag, index) => (
-  <div
-    key={tag.name}
-    className={`pointer-events-none absolute z-20 hidden xl:flex items-start gap-2 ${
-      tag.pos
-    } ${tag.arrow === "left" ? "flex-row-reverse" : ""} ${
-      index === 0
-        ? "animate-[floatOne_4s_ease-in-out_infinite]"
-        : index === 1
-          ? "animate-[floatTwo_5s_ease-in-out_infinite]"
-          : "animate-[floatThree_4.5s_ease-in-out_infinite]"
-    }`}
-    style={{
-      animationDelay: `${index * 0.4}s`,
-    }}
-  >
-    {/* Cursor + Label */}
-    <div
-      className={`relative flex items-start gap-1 ${
-        index === 0
-          ? "animate-[tagEnter_0.8s_ease-out_both]"
-          : index === 1
-            ? "animate-[tagPop_0.9s_cubic-bezier(0.16,1,0.3,1)_both]"
-            : "animate-[tagSlide_0.9s_ease-out_both]"
-      }`}
-      style={{
-        animationDelay: `${index * 0.3}s`,
-      }}
-    >
-      {/* Animated Cursor */}
-      <MousePointer2
-        size={19}
-        fill="currentColor"
-        className={`-mr-1 mt-[-4px] -scale-x-100 ${tag.cursor} ${
-          index === 0
-            ? "animate-[cursorMove_2s_ease-in-out_infinite]"
-            : index === 1
-              ? "animate-[cursorTilt_2.5s_ease-in-out_infinite]"
-              : "animate-[cursorBounce_1.8s_ease-in-out_infinite]"
-        }`}
-      />
+      {/* Floating role tags + animated arrows */}
+      {tags.map((tag, index) => (
+        <div
+          key={tag.name}
+          className={`pointer-events-none absolute z-20 hidden xl:flex items-start gap-2 ${
+            tag.pos
+          } ${tag.arrow === "left" ? "flex-row-reverse" : ""} ${
+            index === 0
+              ? "animate-[floatOne_4s_ease-in-out_infinite]"
+              : index === 1
+                ? "animate-[floatTwo_5s_ease-in-out_infinite]"
+                : "animate-[floatThree_4.5s_ease-in-out_infinite]"
+          }`}
+          style={{
+            animationDelay: `${index * 0.4}s`,
+          }}
+        >
+          {/* Cursor + Label */}
+          <div
+            className={`relative flex items-start gap-1 ${
+              index === 0
+                ? "animate-[tagEnter_0.8s_ease-out_both]"
+                : index === 1
+                  ? "animate-[tagPop_0.9s_cubic-bezier(0.16,1,0.3,1)_both]"
+                  : "animate-[tagSlide_0.9s_ease-out_both]"
+            }`}
+            style={{
+              animationDelay: `${index * 0.3}s`,
+            }}
+          >
+            {/* Animated Cursor */}
+            <MousePointer2
+              size={19}
+              fill="currentColor"
+              className={`-mr-1 mt-[-4px] -scale-x-100 ${tag.cursor} ${
+                index === 0
+                  ? "animate-[cursorMove_2s_ease-in-out_infinite]"
+                  : index === 1
+                    ? "animate-[cursorTilt_2.5s_ease-in-out_infinite]"
+                    : "animate-[cursorBounce_1.8s_ease-in-out_infinite]"
+              }`}
+            />
 
-      {/* Animated Label */}
-      <span
-        className={`relative mt-3 overflow-hidden rounded-full px-3 py-1 text-xs font-semibold shadow-lg transition-all duration-300 hover:scale-110 ${tag.color}`}
-      >
-        {tag.name}
+            {/* Animated Label */}
+            <span
+              className={`relative mt-3 overflow-hidden rounded-full px-3 py-1 text-xs font-semibold shadow-lg transition-all duration-300 hover:scale-110 ${tag.color}`}
+            >
+              {tag.name}
 
-        {/* Shine effect */}
-        <span className="pointer-events-none absolute inset-0 -translate-x-full animate-[tagShine_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-      </span>
-    </div>
+              {/* Shine effect */}
+              <span className="pointer-events-none absolute inset-0 -translate-x-full animate-[tagShine_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+            </span>
+          </div>
 
-    {/* Animated Curved Arrow */}
-    <div
-      className={`mt-6 ${
-        index === 0
-          ? "animate-[arrowMove_2.5s_ease-in-out_infinite]"
-          : index === 1
-            ? "animate-[arrowRotate_3s_ease-in-out_infinite]"
-            : "animate-[arrowBounce_2s_ease-in-out_infinite]"
-      }`}
-    >
-      <CurvedArrow flip={tag.arrow === "left"} />
-    </div>
-  </div>
-))}
-
+          {/* Animated Curved Arrow */}
+          <div
+            className={`mt-6 ${
+              index === 0
+                ? "animate-[arrowMove_2.5s_ease-in-out_infinite]"
+                : index === 1
+                  ? "animate-[arrowRotate_3s_ease-in-out_infinite]"
+                  : "animate-[arrowBounce_2s_ease-in-out_infinite]"
+            }`}
+          >
+            <CurvedArrow flip={tag.arrow === "left"} />
+          </div>
+        </div>
+      ))}
 
       {/* Text content */}
       <div className="relative  z-20 mx-auto flex w-full max-w-4xl flex-col items-center px-5 pt-22 text-center lg:pt-28">
@@ -425,7 +476,166 @@ const HeroSection = () => {
       </div>
 
       {/* WHEEL */}
+
       <div
+        className="relative z-10 mx-auto mt-10 h-[300px] w-full max-w-[1300px] touch-pan-y select-none overflow-hidden [--cw:210px] sm:h-[330px] sm:[--cw:250px] lg:h-[350px] lg:[--cw:280px]"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
+      >
+        {cards.map((card, i) => {
+          const offset =
+            ((((i - active + half) % total) + total) % total) - half;
+
+          const abs = Math.abs(offset);
+          const isActive = offset === 0;
+          const t = themes[card.theme];
+
+          const hidden = abs > 2;
+          const hideOnMobile = abs === 2;
+
+          return (
+            <article
+              key={card.id}
+              onClick={() => setActive(i)}
+              role="button"
+              aria-label={`Show ${card.title}`}
+              aria-current={isActive}
+              className={`absolute left-1/2 top-5 aspect-[3/4.2] w-[var(--cw)] cursor-pointer pt-6 sm:pt-8 transition-all duration-700 ease-[cubic-bezier(.4,.1,.2,1)] ${
+                hidden ? "pointer-events-none" : ""
+              } ${hideOnMobile ? "max-sm:pointer-events-none max-sm:!opacity-0" : ""}`}
+              style={{
+                transformOrigin: "50% 200%",
+                transform: `translateX(-50%) rotate(${offset * ANGLE}deg) scale(${
+                  isActive ? 1.06 : 1 - abs * 0.05
+                })`,
+                zIndex: 30 - abs * 10,
+                opacity: hidden ? 0 : 1,
+              }}
+            >
+              {/* CARD */}
+              <div
+                className={`relative h-full w-full overflow-hidden rounded-[28px] border-2 transition-all duration-700 ${t.card} ${
+                  isActive
+                    ? "shadow-[0_30px_70px_-18px_rgba(37,99,235,0.75)]"
+                    : "shadow-[0_20px_40px_-20px_rgba(0,0,0,0.9)] brightness-75"
+                }`}
+              >
+                {/* VIDEO BACKGROUND */}
+                <video
+                  src={card.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  draggable={false}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+
+                {/* VIDEO OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+
+                {/* BLUE COLOR OVERLAY */}
+                <div className="absolute inset-0 bg-blue-950/10" />
+
+                {/* LIGHT SWEEP ON ACTIVE CARD */}
+                {isActive && (
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <div className="hs-shine absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                  </div>
+                )}
+
+                {/* TITLE */}
+                <div className="absolute left-5 top-5 z-10">
+                  <p className="font-['Outfit'] text-xl font-semibold leading-tight text-white sm:text-2xl">
+                    {card.title}
+                  </p>
+
+                  <p className="mt-1 text-xs text-white/75">{card.subtitle}</p>
+                </div>
+
+                {/* PLAY BUTTON */}
+                <span
+                  className={`absolute bottom-5 left-5 z-10 flex h-10 w-10 items-center justify-center rounded-full backdrop-blur-sm ${t.play}`}
+                >
+                  {isActive && (
+                    <span className="absolute inset-0 animate-ping rounded-full bg-white/40" />
+                  )}
+
+                  <Play
+                    size={14}
+                    fill="currentColor"
+                    className="relative ml-0.5"
+                  />
+                </span>
+
+                {/* CARD NUMBER */}
+                <span className="absolute bottom-5 right-5 z-10 font-['Outfit'] text-xs font-medium tracking-widest text-white/70">
+                  0{card.id}
+                </span>
+              </div>
+            </article>
+          );
+        })}
+
+        {/* CONTROLS: ARROWS + DOTS + AUTOPLAY PROGRESS */}
+        <div className="absolute bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-black/60 px-3 py-2 shadow-lg backdrop-blur-md">
+          {/* PREVIOUS */}
+          <button
+            type="button"
+            onClick={goPrev}
+            aria-label="Previous card"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white transition hover:bg-white hover:text-black"
+          >
+            <ArrowLeft size={16} />
+          </button>
+
+          {/* DOTS */}
+          <div className="flex items-center gap-1.5">
+            {cards.map((card, i) => {
+              const isCurrent = i === active;
+
+              return (
+                <button
+                  key={card.id}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-label={`Go to ${card.title}`}
+                  className={`relative h-[6px] overflow-hidden rounded-full transition-all duration-500 ${
+                    isCurrent
+                      ? "w-8 bg-white/20"
+                      : "w-1.5 bg-white/25 hover:bg-white/50"
+                  }`}
+                >
+                  {isCurrent && (
+                    <span
+                      key={`${active}-${paused}`}
+                      className="hs-progress absolute inset-y-0 left-0 rounded-full bg-blue-500"
+                      style={{
+                        animationPlayState: paused ? "paused" : "running",
+                      }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* NEXT */}
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label="Next card"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-white transition hover:bg-white hover:text-black"
+          >
+            <ArrowRight size={16} />
+          </button>
+        </div>
+      </div>
+
+      {/* <div
         className="relative z-10 mx-auto mt-10 h-[300px] w-full max-w-[1300px] touch-pan-y select-none overflow-hidden [--cw:210px] sm:h-[330px] sm:[--cw:250px] lg:h-[350px] lg:[--cw:280px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
@@ -491,14 +701,14 @@ const HeroSection = () => {
                   </div>
                 )}
 
-                {/* Light sweep on the centered card */}
+                
                 {isActive && (
                   <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div className="hs-shine absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                   </div>
                 )}
 
-                {/* Title */}
+                
                 <div className="absolute left-5 top-5">
                   <p
                     className={`font-['Outfit'] text-xl font-semibold leading-tight sm:text-2xl ${
@@ -516,7 +726,7 @@ const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* CTA only on the centered card */}
+                
                 <a
                   href="#contact"
                   tabIndex={isActive ? 0 : -1}
@@ -532,7 +742,7 @@ const HeroSection = () => {
                   </span>
                 </a>
 
-                {/* Play badge with pulse ring on the centered card */}
+                
                 <span
                   className={`absolute bottom-5 left-5 flex h-10 w-10 items-center justify-center rounded-full ${t.play}`}
                 >
@@ -550,7 +760,7 @@ const HeroSection = () => {
           );
         })}
 
-        {/* Controls: arrows + dots with autoplay progress */}
+        
         <div className="absolute bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/15 bg-black/60 px-3 py-2 shadow-lg backdrop-blur-md">
           <button
             type="button"
@@ -599,7 +809,7 @@ const HeroSection = () => {
             <ArrowRight size={16} />
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Bottom fade */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-10 bg-gradient-to-t from-[#050505] to-transparent" />
@@ -608,298 +818,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-// import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import { AnimatePresence, motion } from "motion/react";
-// import { ArrowUpRight, Play } from "lucide-react";
-
-// const scenes = [
-//   {
-//     number: "01",
-//     title: "CREATE",
-//     subtitle: "Beyond the ordinary.",
-//     color: "#2563EB",
-//     video:
-//       "https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_30fps.mp4",
-//   },
-//   {
-//     number: "02",
-//     title: "IMAGINE",
-//     subtitle: "Make every frame matter.",
-//     color: "#0891B2",
-//     video:
-//       "https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4",
-//   },
-//   {
-//     number: "03",
-//     title: "INSPIRE",
-//     subtitle: "Turn vision into motion.",
-//     color: "#4F46E5",
-//     video:
-//       "https://videos.pexels.com/video-files/3129595/3129595-hd_1920_1080_30fps.mp4",
-//   },
-// ];
-
-// const HeroSection = () => {
-//   const [activeScene, setActiveScene] = useState(0);
-//   const [displayText, setDisplayText] = useState("");
-
-//   // Continuous Typing Animation
-//   useEffect(() => {
-//     const animatedText = "IT MOVE.";
-//     let index = 0;
-//     let isDeleting = false;
-//     let timeout;
-
-//     const typeText = () => {
-//       if (!isDeleting) {
-//         index++;
-//         setDisplayText(animatedText.slice(0, index));
-
-//         if (index === animatedText.length) {
-//           isDeleting = true;
-//           timeout = setTimeout(typeText, 1400);
-//           return;
-//         }
-
-//         timeout = setTimeout(typeText, 150);
-//       } else {
-//         index--;
-//         setDisplayText(animatedText.slice(0, index));
-
-//         if (index === 0) {
-//           isDeleting = false;
-//           timeout = setTimeout(typeText, 400);
-//           return;
-//         }
-//         timeout = setTimeout(typeText, 90);
-//       }
-//     };
-//     timeout = setTimeout(typeText, 900);
-//     return () => clearTimeout(timeout);
-//   }, []);
-
-//   // Automatic Scene Slider
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setActiveScene((prev) => (prev + 1) % scenes.length);
-//     }, 5000);
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   const scene = scenes[activeScene];
-
-//   return (
-//     <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden text-slate-900">
-//       <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] max-w-[1600px] items-center gap-6 sm:gap-12 px-6 py-10 sm:py-16 sm:px-10 lg:grid-cols-2 lg:px-16 lg:py-12">
-//         {/* LEFT CONTENT */}
-//         <div className="relative z-10">
-//           {/* Brand Label */}
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.7 }}
-//             className="mb-8 flex items-center gap-3"
-//           >
-//             <span className="h-[2px] w-10 bg-blue-600" />
-
-//             <span className="text-xs font-bold uppercase tracking-[0.35em] text-blue-700">
-//               NOSH INFOTECH
-//             </span>
-//           </motion.div>
-
-//           {/* Main Heading */}
-//           <div className="relative">
-//             <motion.h1
-//               initial={{ opacity: 0, y: 35 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.8, delay: 0.1 }}
-//               className="font-['Outfit'] text-[18vw] font-black uppercase leading-[62px] sm:leading-[0.76] tracking-[-0.09em] sm:text-[15vw] lg:text-[8.5vw] xl:text-[9rem]"
-//             >
-//               <motion.span
-//                 initial={{ opacity: 0, y: 30 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 transition={{ duration: 0.7, delay: 0.2 }}
-//                 className="block"
-//               >
-//                 WE MAKE
-//               </motion.span>
-
-//               <span className="block whitespace-nowrap text-blue-600">
-//                 {displayText}
-
-//                 <motion.span
-//                   animate={{ opacity: [1, 0, 1] }}
-//                   transition={{
-//                     duration: 0.8,
-//                     repeat: Infinity,
-//                     ease: "linear",
-//                   }}
-//                   className="ml-1 inline-block"
-//                 >
-//                   |
-//                 </motion.span>
-//               </span>
-//             </motion.h1>
-
-//             {/* Animated Underline */}
-//             <motion.div
-//               initial={{ scaleX: 0 }}
-//               animate={{ scaleX: 1 }}
-//               transition={{ duration: 0.8, delay: 0.5 }}
-//               className="mt-8 h-[3px] w-28 origin-left bg-blue-600"
-//             />
-//           </div>
-
-//           {/* Description */}
-//           <motion.p
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.7, delay: 0.3 }}
-//             className="mt-7 max-w-sm text-sm leading-7 text-slate-800 sm:text-base"
-//           >
-//             Creative visuals. Powerful stories.
-//             <br />
-//             Made to leave an impression.
-//           </motion.p>
-
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.7, delay: 0.4 }}
-//             className="mt-4 sm:mt-9 flex sm:flex-wrap items-center gap-3 sm:gap-4"
-//           >
-//             <Link
-//               to="/#videos"
-//               className="group rounded inline-flex items-center gap-5 bg-blue-600 px-4 sm:px-6 py-3 sm:py-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-//             >
-//               Explore Work
-//               <ArrowUpRight
-//                 size={18}
-//                 className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-//               />
-//             </Link>
-
-//             <Link
-//               to="/videos"
-//               className="group inline-flex items-center gap-3 text-sm font-semibold text-slate-800"
-//             >
-//               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 transition-colors group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white">
-//                 <Play size={15} fill="currentColor" />
-//               </span>
-//               Watch Showreel
-//             </Link>
-//           </motion.div>
-//         </div>
-
-//         {/* RIGHT VISUAL */}
-//         <div className="relative mx-auto flex w-full max-w-[620px] items-center justify-center sm:py-8 lg:py-0">
-//           {/* Perspective Stage */}
-//           <div className="relative h-[460px] w-full max-w-[520px] [perspective:1200px] sm:h-[570px]">
-//             {/* Back Frame */}
-//             <motion.div
-//               animate={{
-//                 rotate: activeScene === 0 ? 9 : -8,
-//                 x: activeScene === 0 ? 45 : -35,
-//                 y: activeScene === 0 ? -10 : 15,
-//               }}
-//               transition={{
-//                 duration: 1.2,
-//                 ease: "easeInOut",
-//               }}
-//               className="absolute left-[12%] top-[10%] h-[75%] w-[65%] border border-blue-300/60 bg-blue-200/50"
-//               style={{ transformStyle: "preserve-3d" }}
-//             />
-
-//             {/* Main Video Frame */}
-//             <AnimatePresence mode="wait">
-//               <motion.div
-//                 key={scene.number}
-//                 initial={{
-//                   opacity: 0,
-//                   rotateY: 25,
-//                   rotateZ: 5,
-//                   scale: 0.88,
-//                   x: 50,
-//                 }}
-//                 animate={{
-//                   opacity: 1,
-//                   rotateY: -8,
-//                   rotateZ: -3,
-//                   scale: 1,
-//                   x: 0,
-//                 }}
-//                 exit={{
-//                   opacity: 0,
-//                   rotateY: -25,
-//                   rotateZ: 5,
-//                   scale: 0.9,
-//                   x: -40,
-//                 }}
-//                 transition={{
-//                   duration: 0.8,
-//                   ease: "easeInOut",
-//                 }}
-//                 className="absolute left-[8%] top-[5%] z-10 h-[82%] w-[76%] overflow-hidden border-[8px] border-white bg-slate-950 sm:left-[10%] sm:w-[72%]"
-//                 style={{ transformStyle: "preserve-3d" }}
-//               >
-//                 <video
-//                   key={scene.video}
-//                   src={scene.video}
-//                   autoPlay
-//                   muted
-//                   loop
-//                   playsInline
-//                   className="h-full w-full object-cover"
-//                 />
-
-//                 {/* Live Label */}
-//                 <div className="absolute left-5 top-5 flex items-center gap-2">
-//                   <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
-
-//                   <span className="text-[10px] font-bold tracking-[0.3em] text-white">
-//                     NOW CREATING
-//                   </span>
-//                 </div>
-
-//                 {/* Video Content */}
-//                 <div className="absolute bottom-6 left-6 right-6 text-white">
-//                   <p className="mb-2 text-[10px] font-semibold tracking-[0.35em] text-blue-300">
-//                     FRAME {scene.number}
-//                   </p>
-
-//                   <h2 className="font-['Outfit'] text-4xl font-black uppercase tracking-tight sm:text-6xl">
-//                     {scene.title}
-//                   </h2>
-
-//                   <p className="mt-2 text-xs text-white/75 sm:text-sm">
-//                     {scene.subtitle}
-//                   </p>
-//                 </div>
-//               </motion.div>
-//             </AnimatePresence>
-
-//             {/* Floating Number */}
-//             <motion.div
-//               animate={{
-//                 y: [0, -12, 0],
-//                 rotate: [0, 5, 0],
-//               }}
-//               transition={{
-//                 duration: 4,
-//                 repeat: Infinity,
-//                 ease: "easeInOut",
-//               }}
-//               className="absolute -right-1 top-[16%] z-20 flex h-20 w-20 items-center justify-center border border-blue-200 bg-white text-3xl font-black text-blue-600 sm:-right-2 sm:h-24 sm:w-24"
-//             >
-//               {scene.number}
-//             </motion.div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-// export default HeroSection;
