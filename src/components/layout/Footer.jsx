@@ -10,8 +10,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/#about" },
   { name: "Model", path: "/#model" },
-  { name: "Videos", path: "/#videos" },
-  { name: "Contact", path: "/contact" },
+  { name: "Videos", path: "/#videos" },  
 ];
 
 const socialLinks = [
